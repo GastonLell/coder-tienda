@@ -1,5 +1,5 @@
 import React from 'react'
-import {MenuNav} from './NavbarStyled'
+import {MenuNav} from './Styled'
 
 const Menu = () => {
     return (

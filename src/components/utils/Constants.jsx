@@ -1,7 +1,12 @@
 
+export const Fuentes = {
+    fuenteUno: 'Raleway',
+    fuenteDos: 'Quicksand'
+}
+
 export const Colores = {
-    colorUno: '#9ad3bc',
-    colorDos: '#f3eac2',
-    colorTres: '#f5b461',
-    colorCuatro: '#ec524b'    
+    colorUno: '#393b44',
+    colorDos: '#8d93ab',
+    colorTres: '#d6e0f0',
+    colorCuatro: '#f1f3f8'    
 }
