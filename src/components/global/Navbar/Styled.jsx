@@ -4,10 +4,10 @@ import imagenNav from '../../../assets/imagenes/imagenInstrumentos.jpg';
 
 export const Navbar = styled.div `
     background-image: url(${imagenNav});
-    height: 40vh;
+    height: 45vh;
     position: relative;
     background-position: 25% 90%;
-  
+
     &:before{
       content: "";
       position: absolute;
@@ -22,7 +22,7 @@ export const Navbar = styled.div `
 
     h1{
       width: 100%;
-      margin-bottom: 75px;
+      margin-bottom: 100px;
       padding-top: 35px;
       color: ${Colores.colorCuatro};
       font-family: ${Fuentes.fuenteDos} ;
@@ -31,12 +31,12 @@ export const Navbar = styled.div `
       font-weight: bold;
     }
 `
-export const MenuNav = styled.div `
+export const MenuNav = styled.nav `
     width: 90%;
     display: flex; 
     flex-direction: column;
     justify-content: space-around;
-    position: fixed;
+    position: relative;
 
     a{
       height: 30px;
@@ -63,6 +63,5 @@ export const Cart = styled.button `
   position: relative;
   font-size: 50px;
   border: none;
-  line-height: 30px;
-  margin-top: -20px;
+  bottom: 50px;
 `

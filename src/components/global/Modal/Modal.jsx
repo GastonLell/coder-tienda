@@ -1,5 +1,5 @@
-import React from 'react'
-import {ModalStyled} from './StyledModal'
+import React from 'react';
+import {ModalStyled} from './StyledModal';
 
 const Modal = ({children}) => {
     
