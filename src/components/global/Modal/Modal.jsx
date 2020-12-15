@@ -1,10 +1,10 @@
 import React from 'react';
 import {ModalStyled} from './StyledModal';
 
-const Modal = ({children}) => {
+const Modal = ({children, ClassStyle}) => {
     
     return(
-        <ModalStyled>
+        <ModalStyled className={ClassStyle}>
             {children}
         </ModalStyled>
     )

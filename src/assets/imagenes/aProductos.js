@@ -18,6 +18,12 @@ let aProductos = [
         precioProducto: 40000,
         imagenProducto: null,
         detalleProducto: "Este seria el detalle del producto"
+    },
+    {
+        nombreProducto: "Piano",
+        precioProducto: 40000,
+        imagenProducto: null,
+        detalleProducto: "Este seria el detalle del producto"
     }
 ]
 export default aProductos;
