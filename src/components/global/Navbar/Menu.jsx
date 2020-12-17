@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {MenuNav, CartList} from './Styled'
+import {MenuNav, CartList} from './Style'
 import CartWidget from './CartWidget';
 
 const Menu = () => {

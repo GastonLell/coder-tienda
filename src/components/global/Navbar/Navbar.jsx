@@ -1,4 +1,4 @@
-import {Navbar} from './Styled'
+import {Navbar} from './Style'
 import Menu from './Menu'
 
 const NavBar = () => {

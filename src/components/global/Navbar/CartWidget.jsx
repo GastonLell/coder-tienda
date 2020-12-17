@@ -1,4 +1,4 @@
-import {Cart, Contador} from './Styled'
+import {Cart, Contador} from './Style'
 import { MdShoppingCart } from "react-icons/md";
 
 const CartWidget = ({openClosedCart}) => {

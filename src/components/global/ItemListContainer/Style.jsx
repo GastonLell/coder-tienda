@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 import { Colores, Fuentes } from '../../utils/Constants';
 
-export const Item = styled.article `
+export const Subtitle = styled.h2 `
+    font-size: 30px;
+    text-align: center;
+    font-family: ${Fuentes.fuenteDos};
+    padding: 20px;
+`
+
+export const ItemStyle = styled.article `
     min-height: 300px;
     width: 18%;
     background-color: ${Colores.colorCuatro};
@@ -32,9 +39,12 @@ export const Item = styled.article `
     img:hover{
         opacity: 0.8;
     }
-
 `
-
+export const ItemListStyle = styled.section `
+    .productos{
+        display: flex;
+    }
+`
 export const Contador = styled.div`
     display: flex;
     justify-content: center;
@@ -47,16 +57,24 @@ export const Contador = styled.div`
         height: 40px;
         text-align: center;
         padding-top: 8px;
-        font-size: 20px;
-        background-color: ${Colores.colorTres};
-        
+        font-size: 20px;        
     }
     button{
         width: 30px;
         height: 40px;
         background-color: ${Colores.colorDos};
         border: none;
-        //border-radius: 10px;
+        border-radius: 40px;
         font-size: 20px;
     }
+`
+export const AddCart = styled.button`
+    padding-top: 10px;
+    cursor: pointer;
+    line-height: 30px;
+    border: none;
+    border-radius: 8px;
+    align-items: center;
+    font-size: 30px;
+    background-color: ${Colores.colorTres}
 `
