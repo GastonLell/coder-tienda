@@ -16,7 +16,7 @@ const Item = ({producto, precio, descripcion, imagenProducto}) => {
         setCount(count + 1);
     }
 
-    const addToCart = () => {
+    const handleClickCart = () => {
         alert(`agregaste ${count} productos al carrito`);
     }
 
@@ -29,7 +29,7 @@ const Item = ({producto, precio, descripcion, imagenProducto}) => {
                 <h3 className="detalle-producto" >${precio}</h3>
             </div>
             <CountContainer handleClickSubst={handleClickSubst} handleClickAdd={handleClickAdd} count={count} />
-            <AddToCart handleClickCart={addToCart} />
+            <AddToCart handleClickCart={handleClickCart} />
         </ItemStyle>
     )
 }
