@@ -1,12 +1,12 @@
-
-import {AddCart} from './Style';
+import {AddCartStyle} from './Style';
 import { MdShoppingCart } from "react-icons/md";
 
 const AddToCart = ({handleClickCart}) => {
+
     return (
-        <AddCart onClick={handleClickCart} >
+        <AddCartStyle onClick={handleClickCart} >
             <MdShoppingCart/>
-        </AddCart>
+        </AddCartStyle>
     )
 }
 export default AddToCart;

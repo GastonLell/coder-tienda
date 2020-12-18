@@ -44,9 +44,11 @@ export const ItemStyle = styled.article `
 export const ItemListStyle = styled.section `
     .productos{
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 `
-export const Contador = styled.div`
+export const CountStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +71,7 @@ export const Contador = styled.div`
         font-size: 20px;
     }
 `
-export const AddCart = styled.button`
+export const AddCartStyle = styled.button`
     padding-top: 10px;
     cursor: pointer;
     line-height: 30px;
@@ -79,14 +81,12 @@ export const AddCart = styled.button`
     font-size: 30px;
     background-color: ${Colores.colorTres}
 `
-export const AlertMessage = styled(ModalStyled)`
-    
-    background-color: #528852;
+export const AlertMessageStyle = styled(ModalStyled)`
+    background-color: ${props => props.menssageColor};
     position: fixed;
     bottom: 10px;
     right: 40px;
     height: 45px;
     font-size: 18px;
     border-radius: 8px;
-    
 `

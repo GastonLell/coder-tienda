@@ -9,12 +9,14 @@ const ItemList = ({categoria}) => {
             <Subtitle>{categoria}</Subtitle>
             <div className="productos">
             {
-                aProductos.map(producto =>  <Item producto={producto.nombreProducto} 
-                                                precio={producto.precioProducto}
-                                                descripcion={producto.detalleProducto} 
-                                                imagenProducto={producto.imagenProducto} 
-                                                stock={producto.stock}
-                                                /> )
+                aProductos.map(producto =>  <Item
+                    producto={producto.nombreProducto} 
+                    precio={producto.precioProducto}
+                    descripcion={producto.detalleProducto} 
+                    imagenProducto={producto.imagenProducto} 
+                    stock={producto.stock}
+                    />
+                )
             }
             </div>
         </ItemListStyle>
