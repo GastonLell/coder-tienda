@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Colores, Fuentes } from '../../utils/Constants';
+import {ModalStyled} from '../Modal/StyledModal';
 
 export const Subtitle = styled.h2 `
     font-size: 30px;
@@ -77,4 +78,15 @@ export const AddCart = styled.button`
     align-items: center;
     font-size: 30px;
     background-color: ${Colores.colorTres}
+`
+export const AlertMessage = styled(ModalStyled)`
+    
+    background-color: #528852;
+    position: fixed;
+    bottom: 10px;
+    right: 40px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 8px;
+    
 `

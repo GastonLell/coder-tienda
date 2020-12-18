@@ -1,4 +1,4 @@
-import {Contador} from './Style';
+import {Contador, AlertMessage} from './Style';
 
 const ContadorProductos = ({handleClickSubst, handleClickAdd, count}) => {
 
