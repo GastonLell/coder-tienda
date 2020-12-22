@@ -46,7 +46,6 @@ const CountContainer = ({stock}) => {
                     </AlertMessageStyle>
             }
 
-
         </>
     )
 }

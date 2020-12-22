@@ -1,4 +1,4 @@
-import {ItemStyle, AlertMessage} from './Style';
+import {ItemStyle} from './Style';
 import CountContainer from './CountContainer';
 
 const Item = ({producto, precio, descripcion, imagenProducto, stock}) => {
