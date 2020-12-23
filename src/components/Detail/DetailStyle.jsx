@@ -4,38 +4,17 @@ import {Colores, Fuentes} from '../utils/Constants';
 export const DetailStyle = styled.article`
     display: flex;
     justify-content: center;
-    margin: 20px;
+    padding-bottom: 40px;
+    padding-top: 30px;
+    margin: 0 auto;
     width: 90%;
     font-family: ${Fuentes.fuenteDos};
     color: ${Colores.colorUno};
-    h2{
-        margin-bottom: 15px;
-    }
-    h3{
-        font-size: 40px;
-        font-weight: 300;
-    }
-    h6{
-        margin-bottom: 35px;
-    }
-    .credit-card{
-        display: flex;
-
-    }
-    .credit-card > div{
-        margin-right: 10px;
-    }
-
-    .credit-card .entidades{
-        font-size: 25px;
-        color: #174a5a;
-    }
 
     & > div {
-        padding: 15px;
+        padding: 20px;
         border: 1px solid #ccc;
         background-color: #fff;
-
     }
 
     .slide-img{
@@ -46,5 +25,30 @@ export const DetailStyle = styled.article`
         width: 30%;
         text-align: left;        
     }
+    h2{
+        margin-bottom: 15px;
+    }
+    h3{
+        font-size: 40px;
+        font-weight: 300;
+    }
+    h6{
+        margin-bottom: 35px;
+    }
+    .info-compra{
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .info-compra > div{
+        margin-right: 10px;
+    }
+    .info-compra i{
+        font-weight: 300;
+    }
+    .info-compra .entidades{
+        font-size: 25px;
+        color: #174a5a;
+    }
+
 
 `

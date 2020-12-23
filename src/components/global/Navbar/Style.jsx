@@ -5,38 +5,36 @@ import {ModalStyled} from '../Modal/StyledModal';
 
 export const Navbar = styled.header `
 
-    
-    h1{
-      width: 100%;
-      margin-bottom: 10px;
-      padding-top: 10px;
-      color: ${Colores.colorCinco};
-      font-family: ${Fuentes.fuenteDos} ;
-      font-size: 50px;
-      font-weight: bold;
-    }
-    @media only screen and (min-width: 624px) {
-      width: 100%;
-      height: 147px;
-      background-image: url(${imagenNav});
-      background-position: -1100px 500px;
-      background-attachment: fixed;
-      background-color: ${Colores.colorUno};
-      background-blend-mode: soft-light;
-      position: sticky;
-      top: -85px;
-    }
+  h1{
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    color: ${Colores.colorCinco};
+    font-family: ${Fuentes.fuenteDos} ;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  @media only screen and (min-width: 624px) {
+    width: 100%;
+    height: 147px;
+    background-image: url(${imagenNav});
+    background-position: -1100px 500px;
+    background-attachment: fixed;
+    background-color: ${Colores.colorUno};
+    background-blend-mode: soft-light;
+    position: sticky;
+    top: -85px;
+  }
 `
 export const MenuNav = styled.nav `
     display: flex; 
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 20px 25px 10px;
     align-items: center;
     opacity: 0.9;
     height: 65px;
     background-color: ${Colores.colorDos};
-    padding-top: 20px;
-    padding-bottom: 10px;
 
     a{
       color: ${Colores.colorCinco};

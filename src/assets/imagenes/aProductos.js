@@ -1,10 +1,9 @@
 // importar iagenes y agregarlas a un objeto, para luego importar el objeto en el itemlist
-import imagenPrueba from './imagen-prueba.jpg';
 let aProductos = [
     {
         nombreProducto: "Guitarra",
         precioProducto: 7000,
-        imagenProducto: imagenPrueba,
+        imagenProducto: null,
         detalleProducto: "Este seria el detalle del producto",
         stock: 5
     },

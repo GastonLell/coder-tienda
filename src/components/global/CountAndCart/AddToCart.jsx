@@ -5,7 +5,7 @@ const AddToCart = ({handleClickCart}) => {
 
     return (
         <AddCartStyle onClick={handleClickCart} >
-            <MdShoppingCart/>
+            Agregar al carrito
         </AddCartStyle>
     )
 }
