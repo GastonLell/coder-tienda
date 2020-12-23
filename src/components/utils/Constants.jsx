@@ -4,9 +4,15 @@ export const Fuentes = {
     fuenteDos: 'Quicksand'
 }
 
-export const Colores = {
-    colorUno: '#393b44',
+/* export const Colores = {
     colorDos: '#8d93ab',
     colorTres: '#d6e0f0',
-    colorCuatro: '#f1f3f8'    
+} */
+export const Colores = {
+    colorUno: '#393b44',
+    colorDos: '#34626c',
+    colorTres: '#839b97',
+    colorCuatro: '#cfd3ce',
+    colorCinco: '#f1f3f8'    
+
 }

@@ -10,7 +10,7 @@ export const Navbar = styled.header `
       width: 100%;
       margin-bottom: 10px;
       padding-top: 10px;
-      color: ${Colores.colorCuatro};
+      color: ${Colores.colorCinco};
       font-family: ${Fuentes.fuenteDos} ;
       font-size: 50px;
       font-weight: bold;
@@ -21,7 +21,7 @@ export const Navbar = styled.header `
       background-image: url(${imagenNav});
       background-position: -1100px 500px;
       background-attachment: fixed;
-      background-color: rgba(0, 0, 0, .5);
+      background-color: ${Colores.colorUno};
       background-blend-mode: soft-light;
       position: sticky;
       top: -85px;
@@ -34,19 +34,19 @@ export const MenuNav = styled.nav `
     align-items: center;
     opacity: 0.9;
     height: 65px;
-    background-color: ${Colores.colorUno};
+    background-color: ${Colores.colorDos};
     padding-top: 20px;
     padding-bottom: 10px;
 
     a{
-      color: ${Colores.colorTres};
+      color: ${Colores.colorCinco};
       font-family: ${Fuentes.fuenteDos};
       font-weight: bold;
       padding-bottom: 8px;
       text-decoration: none;
     }
     a:hover{
-      border-bottom: 2px solid ${Colores.colorTres};
+      border-bottom: 2px solid ${Colores.colorCinco};
     }
 
     @media only screen and (min-width: 624px) {
@@ -55,19 +55,19 @@ export const MenuNav = styled.nav `
 `
 export const Cart = styled.button `
   background-color: transparent;
-  color: ${Colores.colorTres};
+  color: ${Colores.colorCinco};
   font-size: 40px;
   border: none;
   text-align: center;
 `
 export const Contador = styled.span `
   position: relative;
-  font-size: 20px;
-  right: 15px;
+  font-size: 18px;
+  right: 18px;
+  padding: 0 3px;
   bottom: 30px;
-  background-color: ${Colores.colorUno}; 
+  background-color: ${Colores.colorDos}; 
   border-radius: 40px;
-  padding: 3px;
 `
 
 export const CartList = styled(ModalStyled) `

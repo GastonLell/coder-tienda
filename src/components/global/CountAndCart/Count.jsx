@@ -1,4 +1,4 @@
-import {CountStyle} from './Style';
+import {CountStyle} from './CountStyled';
 
 const Count = ({handleClickSubst, handleClickAdd, count, stock}) => {
 

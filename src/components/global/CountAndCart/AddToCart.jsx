@@ -1,4 +1,4 @@
-import {AddCartStyle} from './Style';
+import {AddCartStyle} from './CountStyled';
 import { MdShoppingCart } from "react-icons/md";
 
 const AddToCart = ({handleClickCart}) => {

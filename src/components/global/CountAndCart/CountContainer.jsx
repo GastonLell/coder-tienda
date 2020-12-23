@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import Count from './Count';
 import AddToCart from './AddToCart';
-import {AlertMessageStyle} from './Style';
+import {AlertMessageStyle} from './CountStyled';
 
 // componente con la logica de Count y AddToCart
 const CountContainer = ({stock}) => {
