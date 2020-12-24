@@ -11,7 +11,7 @@ const ItemListContainer = () => {
                 resolve(aProductos);
             }, 2000)
         } else {
-            reject('todo mal')
+            reject('No hay productos disponibles...')
         }
     })
     useEffect(() => {
