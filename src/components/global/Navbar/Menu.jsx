@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {MenuNav, CartList} from './Style'
 import CartWidget from './CartWidget';
-
+import {NavLink} from 'react-router-dom'
 const Menu = () => {
     const [openCart, setOpenCart] = useState(false);
     const openClosedCart = () => {
@@ -9,12 +9,12 @@ const Menu = () => {
     }
     return (
         <MenuNav>
-            <a href="https://google.com" target="__blank">Instrumentos de cuerda</a>
-            <a href="https://google.com" target="__blank">Teclados y pianos</a>
-            <a href="https://google.com" target="__blank">Bateria y Percusion</a>
-            <a href="https://google.com" target="__blank">Estudio de grabacion</a>
-            <a href="https://google.com" target="__blank">Amplificadores</a>
-            <a href="https://google.com" target="__blank">Accesorios</a>
+            <NavLink activeClassName="selected" to="/cuerdas">Instrumentos de cuerda</NavLink>
+            <NavLink activeClassName="selected" to="/teclados">Teclados y pianos</NavLink>
+            <NavLink activeClassName="selected" to="/percusion">Bateria y Percusion</NavLink>
+            <NavLink activeClassName="selected" to="/grabacion">Estudio de grabacion</NavLink>
+            <NavLink activeClassName="selected" to="/amplificacion">Amplificadores</NavLink>
+            <NavLink activeClassName="selected" to="/accesorio">Accesorios</NavLink>
             <CartWidget  openClosedCart={openClosedCart} />
             {
                 openCart && 

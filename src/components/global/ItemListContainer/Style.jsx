@@ -11,25 +11,31 @@ export const Subtitle = styled.h2 `
 `
 
 export const ItemStyle = styled.article `
-    min-height: 450px;
+    max-height: 400px;
     width: 18%;
     background-color: #fff;
     border-radius: 8px;
     text-align: left;
-    margin: 10px 25px;
-    padding-top: 0;
+    margin: 10px 25px 40px;
+    padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
-    color: ${Colores.colorUno};
+    color: ${Colores.colorUno} !important;
     font-family: ${Fuentes.fuenteDos};
-
+    .link-route{
+        text-decoration: none;
+        text-align: center;
+    }
     .detalle-producto{
         margin: 5px;
         padding: 0 8px;
+        text-align: left;
+        color: ${Colores.colorUno};
     }
     h5{
-        color: ${Colores.colorTres};
+        color: ${Colores.colorTres} !important;
     }
     img{
         max-width: 100%;
@@ -43,6 +49,6 @@ export const ItemListStyle = styled.section `
     .productos{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
     }
 `

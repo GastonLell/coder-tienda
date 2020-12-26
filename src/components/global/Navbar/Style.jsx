@@ -14,6 +14,9 @@ export const Navbar = styled.header `
     font-size: 50px;
     font-weight: bold;
   }
+  .link-route{
+    text-decoration: none;
+  }
   @media only screen and (min-width: 624px) {
     width: 100%;
     height: 147px;
@@ -35,7 +38,9 @@ export const MenuNav = styled.nav `
     opacity: 0.9;
     height: 65px;
     background-color: ${Colores.colorDos};
-
+    .selected{
+      border-bottom: 2px solid ${Colores.colorCinco};
+    }
     a{
       color: ${Colores.colorCinco};
       font-family: ${Fuentes.fuenteDos};

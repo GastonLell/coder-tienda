@@ -13,13 +13,15 @@ const ItemList = ({categoria, productos}) => {
             pasando por props cada producto al componente item*/}
             <div className="productos">
             {
-                productos.map((producto, index) =>  <Item
+                productos.map(producto =>  <Item
+                    idProducto={producto.idProducto}
                     producto={producto.nombreProducto} 
                     precio={producto.precioProducto}
                     descripcion={producto.detalleProducto} 
                     imagenProducto={producto.imagenProducto} 
+                    category={producto.categoria}
                     stock={producto.stock}
-                    key={index}
+                    key={producto.idProducto}
                     />
                 )
             }
