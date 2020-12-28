@@ -4,6 +4,15 @@ import imagenNav from '../../../assets/imagenes/imagenInstrumentos.jpg';
 import {ModalStyled} from '../Modal/StyledModal';
 
 export const Navbar = styled.header `
+    width: 100%;
+    height: auto;
+    background-image: url(${imagenNav});
+    background-position: -1100px 500px;
+    background-attachment: fixed;
+    background-color: ${Colores.colorUno};
+    background-blend-mode: soft-light;
+    position: sticky;
+    top: -85px;
 
   h1{
     width: 100%;
@@ -17,27 +26,41 @@ export const Navbar = styled.header `
   .link-route{
     text-decoration: none;
   }
+
   @media only screen and (min-width: 624px) {
-    width: 100%;
-    height: 147px;
-    background-image: url(${imagenNav});
-    background-position: -1100px 500px;
-    background-attachment: fixed;
-    background-color: ${Colores.colorUno};
-    background-blend-mode: soft-light;
-    position: sticky;
-    top: -85px;
+
   }
 `
 export const MenuNav = styled.nav `
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
+    height: auto;
+    line-height: 30px;
+    text-align: left;
     padding: 20px 25px 10px;
-    align-items: center;
     opacity: 0.9;
-    height: 65px;
     background-color: ${Colores.colorDos};
+    flex-direction: column;
+    display: ${props => (props.openMenu ? 'flex' : 'none')};
+    
+    .menu-item{
+      animation-duration: 1s;
+      animation-name: sliden;
+    }
+
+    @keyframes sliden{
+      0%{
+        margin-left: -500px;
+      }
+      100%{
+        margin-left: 0;
+      }
+    }
+    .menu-hamb{
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      text-align: left;
+    }
+
     .selected{
       border-bottom: 2px solid ${Colores.colorCinco};
     }
@@ -54,6 +77,10 @@ export const MenuNav = styled.nav `
 
     @media only screen and (min-width: 624px) {
       flex-direction: row;
+      height: 65px;
+      align-items: center;
+      display: flex; 
+      justify-content: space-between;
     }
 `
 export const Cart = styled.button `
@@ -86,4 +113,20 @@ export const CartList = styled(ModalStyled) `
     border-bottom: 1px solid  ${Colores.colorTres};
   }
 
+`
+export const BtnMenu = styled.button`
+  height: auto;
+  line-height: 30px;
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 40px;
+  width: 100%;
+  opacity: 0.9;
+  background-color: ${Colores.colorDos}; 
+  color: ${Colores.colorCuatro};
+  border: none;
+
+  @media only screen and (min-width: 624px) {
+    display: none;
+  }
 `
