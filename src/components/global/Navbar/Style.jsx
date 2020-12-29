@@ -27,9 +27,6 @@ export const Navbar = styled.header `
     text-decoration: none;
   }
 
-  @media only screen and (min-width: 624px) {
-
-  }
 `
 export const MenuNav = styled.nav `
     height: auto;
@@ -54,13 +51,6 @@ export const MenuNav = styled.nav `
         margin-left: 0;
       }
     }
-    .menu-hamb{
-      font-size: 30px;
-      background-color: transparent;
-      border: none;
-      text-align: left;
-    }
-
     .selected{
       border-bottom: 2px solid ${Colores.colorCinco};
     }
@@ -75,12 +65,13 @@ export const MenuNav = styled.nav `
       border-bottom: 2px solid ${Colores.colorCinco};
     }
 
-    @media only screen and (min-width: 624px) {
+    @media only screen and (min-width: 750px) {
+      font-size: 15px;
       flex-direction: row;
       height: 65px;
       align-items: center;
       display: flex; 
-      justify-content: space-between;
+      justify-content: space-around;
     }
 `
 export const Cart = styled.button `
@@ -98,6 +89,14 @@ export const Contador = styled.span `
   bottom: 30px;
   background-color: ${Colores.colorDos}; 
   border-radius: 40px;
+
+  @media only screen and (min-width: 750px) {
+    position: relative;
+    font-size: 18px;
+    right: 13px;
+    bottom: 30px;
+  }
+
 `
 
 export const CartList = styled(ModalStyled) `
@@ -126,7 +125,7 @@ export const BtnMenu = styled.button`
   color: ${Colores.colorCuatro};
   border: none;
 
-  @media only screen and (min-width: 624px) {
+  @media only screen and (min-width: 750px) {
     display: none;
   }
 `
