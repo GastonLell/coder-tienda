@@ -17,7 +17,8 @@ const ItemListContainer = () => {
                 }, 500) 
             } else {
                 setTimeout(()=> {
-                    resolve(aProductos);
+                    let destacados = aProductos.filter(producto => producto.destacado === true)
+                    resolve(destacados);
                 }, 500)
             }
             
@@ -25,6 +26,7 @@ const ItemListContainer = () => {
             reject('No hay productos disponibles...')
         }
     })
+    
 
     useEffect(() => {
         getProducts

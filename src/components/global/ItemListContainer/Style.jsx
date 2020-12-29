@@ -3,8 +3,9 @@ import { Colores, Fuentes } from '../../utils/Constants';
 
 export const Subtitle = styled.h2 `
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: left;
+    margin-left: 25px;
     font-family: ${Fuentes.fuenteDos};
     padding: 20px;
     color: ${Colores.colorUno};
@@ -48,6 +49,7 @@ export const ItemStyle = styled.article `
 export const ItemListStyle = styled.section `
     .productos{
         display: flex;
+        justify-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
     }
