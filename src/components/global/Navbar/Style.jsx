@@ -7,7 +7,7 @@ export const Navbar = styled.header `
     width: 100%;
     height: auto;
     background-image: url(${imagenNav});
-    background-position: -1100px 500px;
+    background-position: -85px 140px;
     background-attachment: fixed;
     background-color: ${Colores.colorUno};
     background-blend-mode: soft-light;
