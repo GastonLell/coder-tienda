@@ -1,4 +1,5 @@
 import ItemList from './ItemList';
+import Loading from './../Loading/Loading';
 import {useState, useEffect} from 'react';
 import aProductos from '../../../assets/imagenes/aProductos';
 import {useParams} from 'react-router-dom';
@@ -20,7 +21,7 @@ const ItemListContainer = () => {
                     let destacados = aProductos.filter(producto => producto.destacado === true)
                     resolve(destacados);
                 }, 500)
-            }
+            } 
             
         } else {
             reject('No hay productos disponibles...')
@@ -41,7 +42,7 @@ const ItemListContainer = () => {
                 <ItemList 
                     categoria={!!category ? `Productos de ${category}` : "Productos destacados"} 
                     productos={productos} /> : 
-                <p>Cargando productos...</p>
+                <Loading/>
             }
         </>
     )

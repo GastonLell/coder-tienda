@@ -2,9 +2,8 @@ import {useState} from 'react';
 import Count from './Count';
 import AddToCart from './AddToCart';
 import {AlertMessageStyle} from './CountStyled';
-
 // componente con la logica de Count y AddToCart
-const CountContainer = ({stock}) => {
+const CountContainer = ({stock, handleRedirect}) => {
 
     //estado del contador
     const [count, setCount] = useState(1);
@@ -19,13 +18,21 @@ const CountContainer = ({stock}) => {
 
     //aparece mensaje de agregar al al carrito
     const handleClickCart = () => {
-        setMessage({
-            text: count === 1 ? `Agregaste ${count} producto al carrito` : `Agregaste ${count} productos al carrito`,
-            messageColor: '#528852'
-        })
+        if(stock > 0){
+            setMessage({
+                text: count === 1 ? `Agregaste ${count} producto al carrito` : `Agregaste ${count} productos al carrito`,
+                messageColor: '#528852'
+            })
+        } else {
+            setMessage({
+                text: "No hay stock disponible",
+                messageColor: '#885252'
+            })
+        }
         // setTime para que desaparezca mensaje en 10 seg
-        setTimeout(() => setMessage({}), 10000)
+        setTimeout(() => setMessage({}), 10000)            
     }
+
 
     return(
         <>
@@ -37,7 +44,7 @@ const CountContainer = ({stock}) => {
             >
             </Count>
 
-            <AddToCart handleClickCart={handleClickCart} />
+            <AddToCart handleClickCart={handleClickCart} handleRedirect={handleRedirect} />
 
             { // si existe un mensaje se muestra
                 message.text && 
@@ -45,7 +52,6 @@ const CountContainer = ({stock}) => {
                         {message.text}
                     </AlertMessageStyle>
             }
-
         </>
     )
 }

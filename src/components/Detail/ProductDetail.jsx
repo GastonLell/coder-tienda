@@ -6,7 +6,7 @@ import {RiMastercardLine} from 'react-icons/ri';
 import {BiCheckShield} from 'react-icons/bi';
 
 
-const ProductDetail = ({item}) => {
+const ProductDetail = ({item, handleRedirect}) => {
     return (
         <DetailStyle>
             <div className="slide-img">
@@ -35,7 +35,10 @@ const ProductDetail = ({item}) => {
                     <h5>Compra Protegida <i>recibi el producto que esperabas o te devolvemos tu dinero</i></h5>
                 </div> 
                 
-                <CountContainer stock={item.stock} />
+                <CountContainer 
+                stock={item.stock}
+                handleRedirect={handleRedirect}
+                />
             </div>
         </DetailStyle>
     )

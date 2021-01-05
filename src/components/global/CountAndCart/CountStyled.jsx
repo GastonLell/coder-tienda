@@ -25,6 +25,8 @@ export const CountStyle = styled.div`
     }
 `
 export const AddCartStyle = styled.button`
+    min-width: 200px;
+    display: block;
     cursor: pointer;
     padding: 10px;
     border: none;
@@ -33,6 +35,7 @@ export const AddCartStyle = styled.button`
     font-size: 15px;
     background-color: ${Colores.colorDos};
     color: ${Colores.colorCuatro};
+    margin: 10px auto;
 
     &:hover{
         opacity: 0.8;

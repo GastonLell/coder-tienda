@@ -1,12 +1,19 @@
 import ProductDetail from './ProductDetail';
 import aProducos from '../../assets/imagenes/aProductos';
 import { useEffect, useState } from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 
 const DetailContainer = () => {
+
     const {idProducto} = useParams();
 
     const [item, setItem] = useState([]);
+
+    const history = useHistory();
+
+    const handleRedirect = () => {
+        history.push("/card")
+    }
 
     const getItems = new Promise((resolve, reject) => {
         if(!!aProducos){
@@ -25,9 +32,12 @@ const DetailContainer = () => {
         .then(rta => setItem(rta))
         .catch(rta => console.log(rta))            
     }, [item])
-
+    
     return (
-        <ProductDetail item={item} />
+        <ProductDetail 
+            item={item}
+            handleRedirect={handleRedirect}
+        />
     )
 }
 export default DetailContainer;

@@ -61,7 +61,7 @@ let aProductos = [
         precioProducto: 80000,
         imagenProducto: null,
         detalleProducto: "Este seria el detalle del producto",
-        stock: 5,
+        stock: 0,
         categoria: "teclados",
         destacado: true
 
