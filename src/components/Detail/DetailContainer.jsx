@@ -12,7 +12,7 @@ const DetailContainer = () => {
     const history = useHistory();
 
     const handleRedirect = () => {
-        history.push("/card")
+        history.push("/cart")
     }
 
     const getItems = new Promise((resolve, reject) => {

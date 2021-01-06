@@ -15,15 +15,16 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
+          <Route exact path="/cart">
+            <CartContainer/>
+          </Route>
           <Route exact path="/:category">
             <ItemListContainer/>
           </Route>
           <Route exact path="/:category/:idProducto">
             <DetailContainer/>
           </Route>
-          <Route exact path="/cart">
-            <CartContainer/>
-          </Route>
+
         </Switch>
       </BrowserRouter>
 

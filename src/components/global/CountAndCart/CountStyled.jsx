@@ -4,12 +4,14 @@ import {ModalStyled} from '../Modal/StyledModal';
 
 export const CountStyle = styled.div`
     display: flex;
-    justify-content: left;
     align-items: center;
     font-family: ${Fuentes.fuenteUno};
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border: 1px solid ${Colores.colorCuatro};
+    width: 90px;
+    max-height: 40px;
     span{
-        width: 70px;
+        width: 30px;
         height: 40px;
         text-align: center;
         padding-top: 8px;
@@ -18,14 +20,13 @@ export const CountStyle = styled.div`
     button{
         width: 30px;
         height: 40px;
-        background-color: ${Colores.colorCuatro};
         border: none;
-        border-radius: 150%;
         font-size: 20px;
+        background-color: transparent;
     }
 `
 export const AddCartStyle = styled.button`
-    min-width: 200px;
+    width: 100%;
     display: block;
     cursor: pointer;
     padding: 10px;
@@ -35,7 +36,7 @@ export const AddCartStyle = styled.button`
     font-size: 15px;
     background-color: ${Colores.colorDos};
     color: ${Colores.colorCuatro};
-    margin: 10px auto;
+    margin: 20px auto;
 
     &:hover{
         opacity: 0.8;
