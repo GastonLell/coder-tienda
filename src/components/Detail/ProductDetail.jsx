@@ -36,7 +36,7 @@ const ProductDetail = ({item, handleRedirect}) => {
                     <h5>Compra Protegida <i>recibi el producto que esperabas o te devolvemos tu dinero</i></h5>
                 </div> 
                 
-                <CountContainer item={item}/>
+                <CountContainer stock={item.stock} />
             
                 <AddCartContainer item={item} handleRedirect={handleRedirect}/>
             </div>

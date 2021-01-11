@@ -2,9 +2,10 @@ import {useContext, useState, useEffect} from 'react';
 import Count from './Count';
 import {Store} from '../../../store/ProductContext';
 // componente con la logica de Count
-const CountContainer = ({item}) => {
-
-    const [count, setCount] = useState(1);
+const CountContainer = ({stock,idVenta, cantidadItem}) => {
+    const [count, setCount] = useState(
+        !cantidadItem ? 1 : cantidadItem
+    );
 
     //estado global
     const [data, setData] = useContext(Store);
@@ -20,7 +21,7 @@ const CountContainer = ({item}) => {
         setCount(
             count + 1
         )
-    };
+    };  
     // una vez montado, si cambia el contador se modifica el estado global del contador
     // para poder agregarlo en widget cart
     useEffect(() => {
@@ -34,7 +35,7 @@ const CountContainer = ({item}) => {
     const disabledMenos = count ===  1 ? 'disabled' : null;
 
     // si el contador es igual al stock dsponible desactivo el boton
-    const disabledMas = !!item.stock && count === item.stock ? 'disabled' : null;
+    const disabledMas = count === stock || count === 0 ? 'disabled' : null;
 
     return(
         <Count
@@ -43,6 +44,7 @@ const CountContainer = ({item}) => {
             disabledMenos={disabledMenos}
             disabledMas={disabledMas}
             count={count}
+            cantidadItem={cantidadItem}
         />
     )
 }

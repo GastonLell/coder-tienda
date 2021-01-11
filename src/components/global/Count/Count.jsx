@@ -1,6 +1,6 @@
 import {CountStyle} from './CountStyled';
 
-const Count = ({handleClickSubst, handleClickAdd, count, disabledMenos, disabledMas}) => {
+const Count = ({handleClickSubst, handleClickAdd, cantidadItem, count, disabledMenos, disabledMas}) => {
     
     return(
         <CountStyle>
@@ -10,6 +10,7 @@ const Count = ({handleClickSubst, handleClickAdd, count, disabledMenos, disabled
             >-</button>
 
             <span> {count} </span>
+            
 
             <button 
                 disabled={disabledMas}

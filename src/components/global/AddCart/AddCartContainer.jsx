@@ -11,7 +11,6 @@ const AddCartContainer = ({handleRedirect, item}) => {
 
     //traer contexto de cart
     const [data, setData] = useContext(Store);
-    
     //aparece mensaje de agregar al al carrito
     const handleClickCart = () => {
         if(item.stock > 0){
@@ -20,6 +19,7 @@ const AddCartContainer = ({handleRedirect, item}) => {
                 ...data,
                 cantidad: data.cantidad + data.countGlobal,
                 items: [...data.items, item],
+                cantidadItem: [...data.cantidadItem, data.countGlobal]
             })
             setMessage({
                 text: data.countGlobal === 1 ? `Agregaste ${data.countGlobal} producto al carrito` : `Agregaste ${data.countGlobal} productos al carrito`,

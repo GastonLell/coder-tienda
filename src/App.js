@@ -12,7 +12,8 @@ function App() {
   const [data, setData] = useState({
     items: [],
     cantidad: 0,
-    countGlobal: 0
+    countGlobal: 0,
+    cantidadItem: []
   })
 
   return (

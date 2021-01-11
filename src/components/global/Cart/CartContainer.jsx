@@ -10,8 +10,8 @@ const CartContainer = () => {
         <CartContStyle>
             <h2 className="count-carrito">Tu carrito ({data.cantidad})</h2>
             {
-                data.items &&
-                data.items.map(item => <Cart item={item}/>)
+                !!data.items &&
+                data.items.map((item, index) => <Cart item={item} cantidadItem={data.cantidadItem[index]} idVenta={index} />)
             }
             <FootCart>
                 <h2>Total</h2>
