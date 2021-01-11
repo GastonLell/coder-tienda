@@ -1,22 +1,24 @@
 import {CartStyle, Delete} from './CartStyle';
-import Count from '../CountAndCart/Count';
+import Count from '../Count/CountContainer';
 
-const Cart = () => {
+const Cart = ({item}) => {
     return(        
         <CartStyle>
             <div className="detalle">
                 <img src="https://placehold.it/100x120" alt="imagen-producto"/>
                 <div className="info">
-                    <h2>Ukelele soprano Bamboo Rojo con funda</h2>
-                    <h3>$2450</h3>
+                    <h2>{item.nombre}</h2>
+                    <h3>${item.precio}</h3>
                 </div>
             </div>
             <div className="count"> 
-                <Count count={2} />
-                <span>4 disponibles</span>
+                <Count count={item.count} stock={item.stock}/>
+                {
+                    item.stock > 1 ? <span>1 elemento disponible</span> : <span>{item.stock} elementos disponibles</span>
+                }
             </div>
             <div className="sub-total">
-                $4900
+                {item.precio}
             </div>
             <Delete onClick={() => alert("hola Santi!")}>X</Delete> 
         </CartStyle>

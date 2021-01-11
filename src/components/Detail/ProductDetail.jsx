@@ -1,5 +1,6 @@
 import {DetailStyle} from './DetailStyle';
-import CountContainer from '../global/CountAndCart/CountContainer';
+import CountContainer from '../global/Count/CountContainer';
+import AddCartContainer from '../global/AddCart/AddCartContainer';
 import {BsCreditCard} from 'react-icons/bs';
 import {SiVisa} from 'react-icons/si';
 import {RiMastercardLine} from 'react-icons/ri';
@@ -35,10 +36,9 @@ const ProductDetail = ({item, handleRedirect}) => {
                     <h5>Compra Protegida <i>recibi el producto que esperabas o te devolvemos tu dinero</i></h5>
                 </div> 
                 
-                <CountContainer 
-                stock={item.stock}
-                handleRedirect={handleRedirect}
-                />
+                <CountContainer item={item}/>
+            
+                <AddCartContainer item={item} handleRedirect={handleRedirect}/>
             </div>
         </DetailStyle>
     )

@@ -1,18 +1,18 @@
 import {CountStyle} from './CountStyled';
 
-const Count = ({handleClickSubst, handleClickAdd, count, stock}) => {
-
+const Count = ({handleClickSubst, handleClickAdd, count, disabledMenos, disabledMas}) => {
+    
     return(
         <CountStyle>
             <button
-                disabled={count === 1 ? 'disabled' : null} 
+                disabled={disabledMenos} 
                 onClick={handleClickSubst}
             >-</button>
 
             <span> {count} </span>
 
             <button 
-                disabled={count === stock ? 'disabled' : null}
+                disabled={disabledMas}
                 onClick={handleClickAdd}
             >+</button>
 

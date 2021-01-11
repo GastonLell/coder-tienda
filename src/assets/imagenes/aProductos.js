@@ -8,7 +8,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 5,
         categoria: "cuerdas",
-        destacado: true
+        destacado: true,
+        count: 1
     },
     {
         idProducto: 2,
@@ -18,9 +19,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 4,
         categoria: "cuerdas",
-        destacado: false
-
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 3,
@@ -30,8 +30,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 5,
         categoria: "cuerdas",
-        destacado: true
-
+        destacado: true,
+        count: 1
     },
     {
         idProducto: 4,
@@ -41,8 +41,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 6,
         categoria: "cuerdas",
-        destacado: true
-
+        destacado: true,
+        count: 1
     },
     {
         idProducto: 5,
@@ -52,8 +52,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 1,
         categoria: "teclados",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 6,
@@ -63,8 +63,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 0,
         categoria: "teclados",
-        destacado: true
-
+        destacado: true,
+        count: 1
     },
     {
         idProducto: 7,
@@ -74,8 +74,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 1,
         categoria: "teclados",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 8,
@@ -85,8 +85,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 3,
         categoria: "teclados",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 9,
@@ -96,8 +96,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 3,
         categoria: "percusion",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 10,
@@ -107,7 +107,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 3,
         categoria: "grabacion",
-        destacado: false
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 11,
@@ -117,8 +118,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 3,
         categoria: "grabacion",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 12,
@@ -128,8 +129,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 3,
         categoria: "amplificacion",
-        destacado: false
-
+        destacado: false,
+        count: 1
     },
     {
         idProducto: 13,
@@ -139,7 +140,8 @@ let aProductos = [
         detalleProducto: "Este seria el detalle del producto",
         stock: 20,
         categoria: "accesorio",
-        destacado: false
+        destacado: false,
+        count: 1
     }
     
 

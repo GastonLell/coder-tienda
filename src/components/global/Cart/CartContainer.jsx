@@ -1,13 +1,18 @@
 import Cart from './Cart';
 import {CartContStyle, FootCart, BtnFinalizar} from './CartStyle';
+import {Store} from '../../../store/ProductContext';
+import {useContext} from 'react';
 
 const CartContainer = () => {
+    const [data, setData] = useContext(Store);
 
     return (
         <CartContStyle>
-            <h2 className="count-carrito">Tu carrito (2)</h2>
-            <Cart/>
-            <Cart/>
+            <h2 className="count-carrito">Tu carrito ({data.cantidad})</h2>
+            {
+                data.items &&
+                data.items.map(item => <Cart item={item}/>)
+            }
             <FootCart>
                 <h2>Total</h2>
                 <span>$4900</span>

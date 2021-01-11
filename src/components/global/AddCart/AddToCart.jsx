@@ -1,4 +1,4 @@
-import {AddCartStyle} from './CountStyled';
+import {AddCartStyle} from './AddCartStyle';
 
 const AddToCart = ({handleClickCart, handleRedirect}) => {
 

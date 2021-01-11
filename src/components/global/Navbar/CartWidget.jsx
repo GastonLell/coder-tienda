@@ -1,12 +1,14 @@
 import {Cart, Contador} from './Style'
 import { MdShoppingCart } from "react-icons/md";
+import {Store} from '../../../store/ProductContext';
+import {useContext} from 'react';
 
 const CartWidget = ({openClosedCart}) => {
-
+    const [data, setData] = useContext(Store)
     return(
         <Cart onClick={openClosedCart}>
             <MdShoppingCart/>
-            <Contador>0</Contador>
+            <Contador>{data.cantidad} </Contador>
         </Cart>
     )
 }

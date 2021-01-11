@@ -29,6 +29,7 @@ export const CartStyle = styled.div`
     
     .detalle{
         display: flex;
+        min-width: 600px;
     }
     .info{
         margin-left: 15px;
@@ -48,6 +49,7 @@ export const CartStyle = styled.div`
     .count > span{
         color: ${Colores.colorTres};
         font-size: 15px;
+        margin-left: -25px;
     }
     .sub-total{
         font-size: 25px;
