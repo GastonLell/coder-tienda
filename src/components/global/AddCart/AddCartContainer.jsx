@@ -1,5 +1,5 @@
 import {useContext, useState} from 'react';
-import {Store} from '../../../store/ProductContext';
+import {Store} from '../../../store/CartContext';
 
 import AddToCart from '../AddCart/AddToCart';
 import {AlertMessageStyle} from './AddCartStyle';

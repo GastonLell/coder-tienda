@@ -2,7 +2,7 @@ import ProductDetail from './ProductDetail';
 import aProducos from '../../assets/imagenes/aProductos';
 import { useEffect, useState, useContext } from 'react';
 import {useParams, useHistory} from 'react-router-dom';
-import {Store} from '../../store/ProductContext';
+import {Store} from '../../store/CartContext';
 
 const DetailContainer = () => {
     //tomo el id del producto para mostrar

@@ -1,6 +1,6 @@
 import {Cart, Contador} from './Style'
 import { MdShoppingCart } from "react-icons/md";
-import {Store} from '../../../store/ProductContext';
+import {Store} from '../../../store/CartContext';
 import {useContext} from 'react';
 
 const CartWidget = ({openClosedCart}) => {

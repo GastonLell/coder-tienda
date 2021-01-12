@@ -1,6 +1,6 @@
 import {useContext, useState, useEffect} from 'react';
 import Count from './Count';
-import {Store} from '../../../store/ProductContext';
+import {Store} from '../../../store/CartContext';
 // componente con la logica de Count
 const CountContainer = ({stock,idVenta, cantidadItem}) => {
     const [count, setCount] = useState(

@@ -1,24 +1,18 @@
 import './App.css';
-import {useState} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import CartContext from './store/CartContext';
+
 import Navbar from './components/global/Navbar/Navbar';
 import Home from './components/containers/Home/Home';
 import ItemListContainer from './components/global/ItemListContainer/ItemListContainer';
 import DetailContainer from './components/Detail/DetailContainer';
 import CartContainer from './components/global/Cart/CartContainer';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Store} from './store/ProductContext';
 
 function App() {
-  const [data, setData] = useState({
-    items: [],
-    cantidad: 0,
-    countGlobal: 0,
-    cantidadItem: []
-  })
 
   return (
       <div className="App">
-        <Store.Provider value={[data, setData]}>
+      <CartContext>
         <BrowserRouter>
         <Navbar/>
           <Switch>
@@ -35,8 +29,8 @@ function App() {
               <DetailContainer/>
             </Route>
           </Switch>
-      </BrowserRouter>
-      </Store.Provider>
+        </BrowserRouter>
+      </CartContext>
       </div>
   );
 }

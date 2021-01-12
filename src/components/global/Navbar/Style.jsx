@@ -103,7 +103,33 @@ export const CartList = styled(ModalStyled) `
   position: absolute;
   top: 147px;
   right: 0;
-  
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    width:10px;
+  }
+
+  &::-webkit-scrollbar-button:increment, &::-webkit-scrollbar-button {
+    display: none;
+  }  
+
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }
+
   th{
     padding: 5px 20px;
     border-bottom: 1px solid  ${Colores.colorDos};
