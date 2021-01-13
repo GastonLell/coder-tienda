@@ -30,8 +30,15 @@ const CartContainer = () => {
       items: arrayEditado,
     });
   };
+  const clearCart = () => {
+    setData({
+      ...data,
+      totalVenta: NaN,
+      items: [],
+    });
+  };
 
-  // cada vez que cambie un item se va a ir modificando el precio total
+  // cada vez que cambie cart se modifica el precio
   useEffect(() => {
     let num = totalVenta();
     setData({
@@ -56,12 +63,17 @@ const CartContainer = () => {
         <span>
           {data.totalVenta
             ? `$ ${data.totalVenta}`
-            : "No hay producto/s seleccionado/s"}
+            : "No hay productos seleccionados"}
         </span>
       </FootCart>
 
       <FootCart>
+        <BtnFinalizar onClick={clearCart} className="btn-clear">
+          Limpiar carrito
+        </BtnFinalizar>
+
         <BtnFinalizar className="btn-mas">Elegir mas productos</BtnFinalizar>
+
         <BtnFinalizar>Finalizar compra</BtnFinalizar>
       </FootCart>
     </CartContStyle>

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { Store } from "../../../store/CartContext";
-
 import AddToCart from "../AddCart/AddToCart";
 import { AlertMessageStyle } from "./AddCartStyle";
 
@@ -10,7 +9,7 @@ const AddCartContainer = ({ handleRedirect, item, count }) => {
   const [data, setData] = useContext(Store);
 
   const handleClickCart = () => {
-    //funcion para saber si el item esta en el array
+    //variable para guardar valor booleano si el item esta en el array
     const isInCart = data.items.find(
       ({ idProducto }) => idProducto === item.idProducto
     );
@@ -24,7 +23,8 @@ const AddCartContainer = ({ handleRedirect, item, count }) => {
     } else {
       // su item no esta en el array de productos se guarda en el mismo
       if (item.stock > 0) {
-        // agrego la cantidad al items de cada producto que comprara
+        // agrego item en data (context)
+        // agrego la cantidad a cada item que compra
         setData({
           ...data,
           items: [...data.items, { ...item, amount: count }],
