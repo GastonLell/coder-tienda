@@ -10,7 +10,6 @@ const CartContext = ({ children }) => {
     cantidadItem: [],
     totalVenta: NaN,
   });
-  const pepe = "hola pepe, como te va";
   return (
     <>
       <Store.Provider value={[data, setData]}>{children}</Store.Provider>
