@@ -5,9 +5,6 @@ export const Store = createContext();
 const CartContext = ({ children }) => {
   const [data, setData] = useState({
     items: [],
-    cantidad: 0,
-    countGlobal: 0,
-    cantidadItem: [],
     totalVenta: NaN,
   });
   return (
