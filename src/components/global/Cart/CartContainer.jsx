@@ -20,15 +20,12 @@ const CartContainer = () => {
   };
 
   // funcion eliminar item cart
-  const removeItem = async (id) => {
-    const itemToDelete = data.items.find(({ idProducto }) => idProducto === id);
-
+  const removeItem = (id) => {
     //creo nuevo array sin el producto eliminado
     const arrayEditado = data.items.filter(
       ({ idProducto }) => idProducto !== id
     );
-
-    await setData({
+    setData({
       ...data,
       items: arrayEditado,
     });
@@ -41,7 +38,7 @@ const CartContainer = () => {
       ...data,
       totalVenta: num,
     });
-  }, [data.items]);
+  }, []);
 
   return (
     <CartContStyle>

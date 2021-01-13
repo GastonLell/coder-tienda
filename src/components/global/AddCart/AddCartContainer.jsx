@@ -10,24 +10,40 @@ const AddCartContainer = ({ handleRedirect, item, count }) => {
   const [data, setData] = useContext(Store);
 
   const handleClickCart = () => {
-    if (item.stock > 0) {
-      // agrego la cantidad al items de cada producto que comprara
-      setData({
-        ...data,
-        items: [...data.items, { ...item, amount: count }],
-      });
+    //funcion para saber si el item esta en el array
+    const isInCart = data.items.find(
+      ({ idProducto }) => idProducto === item.idProducto
+    );
+
+    //si el item esta en el array productos, se informa con un msj
+    if (isInCart) {
       setMessage({
-        text:
-          count === 1
-            ? `Agregaste ${count} producto al carrito`
-            : `Agregaste ${count} productos al carrito`,
-        messageColor: "#528852",
-      });
-    } else {
-      setMessage({
-        text: "No hay stock disponible",
+        text: `${item.nombreProducto} ya está seleccionado`,
         messageColor: "#885252",
       });
+    } else {
+      // su item no esta en el array de productos se guarda en el mismo
+      if (item.stock > 0) {
+        // agrego la cantidad al items de cada producto que comprara
+        setData({
+          ...data,
+          items: [...data.items, { ...item, amount: count }],
+        });
+        // mensaje de confirmacion
+        setMessage({
+          text:
+            count === 1
+              ? `Agregaste ${count} producto al carrito`
+              : `Agregaste ${count} productos al carrito`,
+          messageColor: "#528852",
+        });
+      } else {
+        //mensaje si no hay stock
+        setMessage({
+          text: "No hay stock disponible",
+          messageColor: "#885252",
+        });
+      }
     }
     // setTime para que desaparezca mensaje en 10 seg
     setTimeout(() => setMessage({}), 10000);
