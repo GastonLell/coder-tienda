@@ -11,6 +11,7 @@ const CartContainer = () => {
   const totalVenta = () => {
     let resultado = 0;
     let subTotal;
+    
     data.items.map((item, index) => {
       subTotal = item.precioProducto * item.amount;
       resultado += subTotal;
@@ -18,7 +19,7 @@ const CartContainer = () => {
     return resultado;
   };
 
-  // funcion eliminar item cart, pasando id del producto y id de la venta
+  // funcion eliminar item cart
   const removeItem = async (id) => {
     const itemToDelete = data.items.find(({ idProducto }) => idProducto === id);
 
@@ -28,7 +29,6 @@ const CartContainer = () => {
     await setData({
       ...data,
       items: arrayEditado,
-      // cantidad: data.cantidad - itemToDelete.amount,
     });
   };
 

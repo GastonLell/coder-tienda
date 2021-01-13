@@ -15,7 +15,7 @@ const Cart = ({ item, removeItem }) => {
       </div>
       <div className="count">
         <CountContainer
-          stock={item.stock}
+          max={item.stock}
           count={count}
           addCount={() => setCount(count + 1)}
           substCount={() => setCount(count - 1)}

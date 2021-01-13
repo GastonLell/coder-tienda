@@ -46,7 +46,7 @@ const ProductDetail = ({ item, handleRedirect }) => {
           </h5>
         </div>
           <CountContainer
-            stock={item.stock}
+            max={item.stock}
             count={count}
             addCount={() => setCount(count + 1)}
             substCount={() => setCount(count - 1)}
