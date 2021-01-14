@@ -3,31 +3,29 @@ import { Store } from "../../../store/CartContext";
 import AddToCart from "../AddCart/AddToCart";
 import { AlertMessageStyle } from "./AddCartStyle";
 
-const AddCartContainer = ({ handleRedirect, item, count }) => {
+const AddCartContainer = ({ handleRedirect, producto, count }) => {
   const [message, setMessage] = useState({});
 
   const [data, setData] = useContext(Store);
 
   const handleClickCart = () => {
     //variable para guardar valor booleano si el item esta en el array
-    const isInCart = data.items.find(
-      ({ idProducto }) => idProducto === item.idProducto
-    );
+    const isInCart = data.items.find(({ id }) => id === producto.id);
 
     //si el item esta en el array productos, se informa con un msj
     if (isInCart) {
       setMessage({
-        text: `${item.nombreProducto} ya está seleccionado`,
+        text: `${producto.data.nombre} ya está seleccionado`,
         messageColor: "#885252",
       });
     } else {
       // su item no esta en el array de productos se guarda en el mismo
-      if (item.stock > 0) {
+      if (producto.data.stock > 0) {
         // agrego item en data (context)
         // agrego la cantidad a cada item que compra
         setData({
           ...data,
-          items: [...data.items, { ...item, amount: count }],
+          items: [...data.items, { ...producto, amount: count }],
         });
         // mensaje de confirmacion
         setMessage({

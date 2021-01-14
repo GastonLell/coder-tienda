@@ -7,12 +7,8 @@ import { SiVisa } from "react-icons/si";
 import { RiMastercardLine } from "react-icons/ri";
 import { BiCheckShield } from "react-icons/bi";
 
-const ProductDetail = ({ item, handleRedirect }) => {
-  const [count, setCount] = useState(item !== {} ? item.amount : 1);
-
-  useEffect(() => {
-    setCount(item.amount);
-  }, [item]);
+const ProductDetail = ({ producto, handleRedirect }) => {
+  const [count, setCount] = useState(1);
 
   return (
     <DetailStyle>
@@ -20,9 +16,9 @@ const ProductDetail = ({ item, handleRedirect }) => {
         <img src="https://placehold.it/400x400" alt="detalle-producto" />
       </div>
       <div className="detalle-producto">
-        <h2>{item.nombreProducto}</h2>
-        <h3>${item.precioProducto}</h3>
-        <h6>{!!item.stock ? "Stock disponible" : "No hay stock"}</h6>
+        <h2>{producto.data.nombre}</h2>
+        <h3>${producto.data.precio}</h3>
+        <h6>{!!producto.data.stock ? "Stock disponible" : "No hay stock"}</h6>
         <div className="info-compra">
           <div>
             <BsCreditCard />
@@ -45,13 +41,13 @@ const ProductDetail = ({ item, handleRedirect }) => {
           </h5>
         </div>
         <CountContainer
-          max={item.stock}
+          max={producto.data.stock}
           count={count}
           addCount={() => setCount(count + 1)}
           substCount={() => setCount(count - 1)}
         />
         <AddCartContainer
-          item={item}
+          producto={producto}
           handleRedirect={handleRedirect}
           count={count}
         />
@@ -60,3 +56,9 @@ const ProductDetail = ({ item, handleRedirect }) => {
   );
 };
 export default ProductDetail;
+
+//esto iria en setCount
+// producto !== {} ? producto.amount : 1
+/*   useEffect(() => {
+    setCount(item.amount);
+  }, [item]); */

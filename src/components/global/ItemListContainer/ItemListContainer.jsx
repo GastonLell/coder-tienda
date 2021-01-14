@@ -1,14 +1,52 @@
-import ItemList from './ItemList';
-import Loading from './../Loading/Loading';
-import {useState, useEffect, useContext} from 'react';
-import aProductos from '../../../assets/imagenes/aProductos';
-import {useParams} from 'react-router-dom';
+import ItemList from "./ItemList";
+import Loading from "./../Loading/Loading";
+import { useState, useEffect, useContext } from "react";
+// import aProductos from '../../../assets/imagenes/aProductos';
+import { useParams } from "react-router-dom";
+import { getFireStore } from "../../../db/config";
 
 const ItemListContainer = () => {
-    const [productos, setProductos] = useState([]);
-    const {category} = useParams();
+  const db = getFireStore();
+  const [productos, setProductos] = useState([]);
+  const { categoria } = useParams();
 
-    const getProducts = new Promise((resolve, reject) => {
+  const getProductsFromDB = () => {
+    db.collection("productos")
+      .get()
+      .then((docs) => {
+        let arr = [];
+
+        docs.forEach((doc) => {
+          arr.push({ data: doc.data(), id: doc.id });
+        });
+
+        setProductos(arr);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    getProductsFromDB();
+  }, []);
+  return (
+    <>
+      {productos.length ? (
+        <ItemList
+          categoria={
+            !!categoria ? `Productos de ${categoria}` : "Productos destacados"
+          }
+          productos={productos}
+        />
+      ) : (
+        <Loading />
+      )}
+    </>
+  );
+};
+
+export default ItemListContainer;
+
+/*     const getProducts = new Promise((resolve, reject) => {
 
         if(aProductos) {
             if(!!category){
@@ -26,7 +64,7 @@ const ItemListContainer = () => {
         } else {
             reject('No hay productos disponibles...')
         }
-    })
+    }) 
     
 
     useEffect(() => {
@@ -34,18 +72,4 @@ const ItemListContainer = () => {
         .then(rta => {setProductos(rta)})
         .catch(error => console.log(error))
     }, [category])
-
-    return(       
-        
-        <>
-            {productos.length ? 
-                <ItemList 
-                    categoria={!!category ? `Productos de ${category}` : "Productos destacados"} 
-                    productos={productos} /> : 
-                <Loading/>
-            }
-        </>
-    )
-}
-
-export default ItemListContainer;
+*/
