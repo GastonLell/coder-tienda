@@ -3,6 +3,7 @@ import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
 import { Store } from "../../../store/CartContext";
 import { useContext, useEffect } from "react";
 import getItemsAmount from "../../../helpers/cart/getItemsAmount";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const [data, setData] = useContext(Store);
@@ -12,7 +13,7 @@ const CartContainer = () => {
     let resultado = 0;
     let subTotal;
 
-    data.items.map((item, index) => {
+    data.items.map((item) => {
       subTotal = item.precioProducto * item.amount;
       resultado += subTotal;
     });
@@ -45,7 +46,7 @@ const CartContainer = () => {
       ...data,
       totalVenta: num,
     });
-  }, []);
+  }, [data.items]);
 
   return (
     <CartContStyle>
@@ -71,9 +72,9 @@ const CartContainer = () => {
         <BtnFinalizar onClick={clearCart} className="btn-clear">
           Limpiar carrito
         </BtnFinalizar>
-
-        <BtnFinalizar className="btn-mas">Elegir mas productos</BtnFinalizar>
-
+        <Link to="/">
+          <BtnFinalizar className="btn-mas">Elegir mas productos</BtnFinalizar>
+        </Link>
         <BtnFinalizar>Finalizar compra</BtnFinalizar>
       </FootCart>
     </CartContStyle>

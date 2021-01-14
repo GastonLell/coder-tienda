@@ -6,6 +6,7 @@ import getItemsAmount from "../../../helpers/cart/getItemsAmount";
 
 const CartWidget = ({ openClosedCart }) => {
   const [data, setData] = useContext(Store);
+
   return (
     <Cart onClick={openClosedCart}>
       <MdShoppingCart />
