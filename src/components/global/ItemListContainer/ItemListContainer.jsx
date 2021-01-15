@@ -11,23 +11,38 @@ const ItemListContainer = () => {
   const { categoria } = useParams();
 
   const getProductsFromDB = () => {
-    db.collection("productos")
-      .get()
-      .then((docs) => {
-        let arr = [];
+    if (!!categoria) {
+      db.collection("productos")
+        .where("categoria", "==", categoria)
+        .get()
+        .then((docs) => {
+          let arr = [];
 
-        docs.forEach((doc) => {
-          arr.push({ data: doc.data(), id: doc.id });
+          docs.forEach((doc) => {
+            arr.push({ data: doc.data(), id: doc.id });
+          });
+          setProductos(arr);
         });
+    } else {
+      db.collection("productos")
+        .where("destacado", "==", true)
+        .get()
+        .then((docs) => {
+          let arr = [];
 
-        setProductos(arr);
-      })
-      .catch((e) => console.log(e));
+          docs.forEach((doc) => {
+            arr.push({ data: doc.data(), id: doc.id });
+          });
+
+          setProductos(arr);
+        })
+        .catch((e) => console.log(e));
+    }
   };
 
   useEffect(() => {
     getProductsFromDB();
-  }, []);
+  }, [productos]);
   return (
     <>
       {productos.length ? (

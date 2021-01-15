@@ -6,10 +6,10 @@ import { getFireStore } from "../../db/config";
 
 const DetailContainer = () => {
   const db = getFireStore();
-  const { idProducto } = useParams();
   const [producto, setProducto] = useState({});
   const [data] = useContext(Store);
   const history = useHistory();
+  const { idProducto } = useParams();
 
   const handleRedirect = () => {
     history.push("/cart");
