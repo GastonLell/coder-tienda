@@ -1,6 +1,4 @@
-import { useContext, useState, useEffect } from "react";
 import Count from "./Count";
-import { Store } from "../../../store/CartContext";
 
 const CountContainer = ({ max, count, addCount, substCount }) => {
   return (

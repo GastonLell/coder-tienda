@@ -1,56 +1,44 @@
 import ItemList from "./ItemList";
 import Loading from "./../Loading/Loading";
 import { useState, useEffect, useContext } from "react";
-// import aProductos from '../../../assets/imagenes/aProductos';
 import { useParams } from "react-router-dom";
-import { getFireStore } from "../../../db/config";
+import { StoreProduct } from "../../../store/dbContext";
 
 const ItemListContainer = () => {
-  const db = getFireStore();
-  const [productos, setProductos] = useState([]);
+  const [items, setItems] = useState({});
   const { categoria } = useParams();
 
+  const [productos, setProductos] = useContext(StoreProduct);
+
   const getProductsFromDB = () => {
-    if (!!categoria) {
-      db.collection("productos")
-        .where("categoria", "==", categoria)
-        .get()
-        .then((docs) => {
-          let arr = [];
-
-          docs.forEach((doc) => {
-            arr.push({ data: doc.data(), id: doc.id });
-          });
-          setProductos(arr);
-        });
-    } else {
-      db.collection("productos")
-        .where("destacado", "==", true)
-        .get()
-        .then((docs) => {
-          let arr = [];
-
-          docs.forEach((doc) => {
-            arr.push({ data: doc.data(), id: doc.id });
-          });
-
-          setProductos(arr);
-        })
-        .catch((e) => console.log(e));
+    if (productos) {
+      console.log(productos);
+      if (!!categoria) {
+        let arrFiltrado = productos.filter(
+          (item) => item.data.categoria == categoria
+        );
+        setItems(arrFiltrado);
+      } else {
+        let arrFiltrado = productos.filter(
+          (item) => item.data.destacado == true
+        );
+        setItems(arrFiltrado);
+      }
     }
   };
 
   useEffect(() => {
     getProductsFromDB();
-  }, [productos]);
+    console.log("console de itemlistcontainer");
+  }, []);
   return (
     <>
-      {productos.length ? (
+      {items.length ? (
         <ItemList
           categoria={
             !!categoria ? `Productos de ${categoria}` : "Productos destacados"
           }
-          productos={productos}
+          productos={items}
         />
       ) : (
         <Loading />
@@ -60,31 +48,3 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-
-/*     const getProducts = new Promise((resolve, reject) => {
-
-        if(aProductos) {
-            if(!!category){
-                const productosCategory = aProductos.filter(producto => producto.categoria == category)
-                setTimeout(() => {
-                    resolve(productosCategory);
-                }, 500) 
-            } else {
-                setTimeout(()=> {
-                    let destacados = aProductos.filter(producto => producto.destacado === true)
-                    resolve(destacados);
-                }, 500)
-            } 
-            
-        } else {
-            reject('No hay productos disponibles...')
-        }
-    }) 
-    
-
-    useEffect(() => {
-        getProducts
-        .then(rta => {setProductos(rta)})
-        .catch(error => console.log(error))
-    }, [category])
-*/
