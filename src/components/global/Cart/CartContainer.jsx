@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const CartContainer = () => {
   const [data, setData] = useContext(Store);
 
-  //funcion calcular total de la venta
   const totalVenta = () => {
     let resultado = 0;
     let subTotal;
@@ -20,9 +19,7 @@ const CartContainer = () => {
     return resultado;
   };
 
-  // funcion eliminar item cart
   const removeItem = (id) => {
-    //creo nuevo array sin el producto eliminado
     const arrayEditado = data.items.filter(
       ({ idProducto }) => idProducto !== id
     );
@@ -39,13 +36,13 @@ const CartContainer = () => {
     });
   };
 
-  // cada vez que cambie cart se modifica el precio
   useEffect(() => {
     let num = totalVenta();
     setData({
       ...data,
       totalVenta: num,
     });
+    console.log("console desde cart Container");
   }, [data.items]);
 
   return (
@@ -75,7 +72,9 @@ const CartContainer = () => {
         <Link to="/">
           <BtnFinalizar className="btn-mas">Elegir mas productos</BtnFinalizar>
         </Link>
-        <BtnFinalizar>Finalizar compra</BtnFinalizar>
+        <Link to="/checkout">
+          <BtnFinalizar>Finalizar compra</BtnFinalizar>
+        </Link>
       </FootCart>
     </CartContStyle>
   );

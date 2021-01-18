@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DetailStyle } from "./DetailStyle";
 import CountContainer from "../global/Count/CountContainer";
 import AddCartContainer from "../global/AddCart/AddCartContainer";
@@ -16,9 +16,9 @@ const ProductDetail = ({ producto, handleRedirect }) => {
         <img src="https://placehold.it/400x400" alt="detalle-producto" />
       </div>
       <div className="detalle-producto">
-        <h2>{producto.data.nombre}</h2>
-        <h3>${producto.data.precio}</h3>
-        <h6>{!!producto.data.stock ? "Stock disponible" : "No hay stock"}</h6>
+        <h2>{producto?.data?.nombre}</h2>
+        <h3>${producto?.data?.precio}</h3>
+        <h6>{!!producto?.data?.stock ? "Stock disponible" : "No hay stock"}</h6>
         <div className="info-compra">
           <div>
             <BsCreditCard />
@@ -41,7 +41,7 @@ const ProductDetail = ({ producto, handleRedirect }) => {
           </h5>
         </div>
         <CountContainer
-          max={producto.data.stock}
+          max={producto?.data?.stock}
           count={count}
           addCount={() => setCount(count + 1)}
           substCount={() => setCount(count - 1)}

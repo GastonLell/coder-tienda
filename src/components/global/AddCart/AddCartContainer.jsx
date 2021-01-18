@@ -20,7 +20,7 @@ const AddCartContainer = ({ handleRedirect, producto, count }) => {
       });
     } else {
       // su item no esta en el array de productos se guarda en el mismo
-      if (producto.data.stock > 0) {
+      if (producto?.data?.stock > 0) {
         // agrego item en data (context)
         // agrego la cantidad a cada item que compra
         setData({
