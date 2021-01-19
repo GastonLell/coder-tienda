@@ -13,16 +13,15 @@ const CartContainer = () => {
     let subTotal;
 
     data.items.map((item) => {
-      subTotal = item.precioProducto * item.amount;
+      subTotal = item.data.precio * item.amount;
       resultado += subTotal;
     });
     return resultado;
   };
 
-  const removeItem = (id) => {
-    const arrayEditado = data.items.filter(
-      ({ idProducto }) => idProducto !== id
-    );
+  const removeItem = (idParams) => {
+    const arrayEditado = data.items.filter((item) => item.id !== idParams);
+
     setData({
       ...data,
       items: arrayEditado,
@@ -42,7 +41,6 @@ const CartContainer = () => {
       ...data,
       totalVenta: num,
     });
-    console.log("console desde cart Container");
   }, [data.items]);
 
   return (

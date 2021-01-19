@@ -47,13 +47,11 @@ const Menu = ({ openCart, openClosedCart, openMenu }) => {
                   <tr>
                     <td>
                       <img
-                        src={
-                          item.imagenProducto || "https://placehold.it/100x130"
-                        }
+                        src={item.data.imagen || "https://placehold.it/100x130"}
                       />
                     </td>
                     <td>
-                      {item.nombreProducto}
+                      {item.data.nombre}
                       <span className="amount-item">({item.amount})</span>
                     </td>
                   </tr>

@@ -7,8 +7,8 @@ import { SiVisa } from "react-icons/si";
 import { RiMastercardLine } from "react-icons/ri";
 import { BiCheckShield } from "react-icons/bi";
 
-const ProductDetail = ({ producto, handleRedirect }) => {
-  const [count, setCount] = useState(1);
+const ProductDetail = ({ producto, handleRedirect, amount }) => {
+  const [count, setCount] = useState(!!amount ? amount : 1);
 
   return (
     <DetailStyle>
@@ -58,7 +58,7 @@ const ProductDetail = ({ producto, handleRedirect }) => {
 export default ProductDetail;
 
 //esto iria en setCount
-// producto !== {} ? producto.amount : 1
+//
 /*   useEffect(() => {
     setCount(item.amount);
   }, [item]); */

@@ -9,13 +9,13 @@ const Cart = ({ item, removeItem }) => {
       <div className="detalle">
         <img src="https://placehold.it/100x120" alt="imagen-producto" />
         <div className="info">
-          <h2>{item.nombreProducto}</h2>
-          <h3>${item.precioProducto}</h3>
+          <h2>{item.data.nombre}</h2>
+          <h3>${item.data.precio}</h3>
         </div>
       </div>
       <div className="count">
         <CountContainer
-          max={item.stock}
+          max={item.data.stock}
           count={count}
           addCount={() => setCount(count + 1)}
           substCount={() => setCount(count - 1)}
@@ -23,12 +23,12 @@ const Cart = ({ item, removeItem }) => {
         {!!item.stock > 1 ? (
           <span>1 elemento disponible</span>
         ) : (
-          <span>{item.stock} elementos disponibles</span>
+          <span>{item.data.stock} elementos disponibles</span>
         )}
       </div>
 
-      <div className="sub-total">${item.precioProducto * item.amount}</div>
-      <Delete onClick={() => removeItem(item.idProducto)}>X</Delete>
+      <div className="sub-total">${item.data.precio * item.amount}</div>
+      <Delete onClick={() => removeItem(item.id)}>X</Delete>
     </CartStyle>
   );
 };

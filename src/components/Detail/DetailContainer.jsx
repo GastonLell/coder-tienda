@@ -17,21 +17,23 @@ const DetailContainer = () => {
   };
   const getProductById = () => {
     if (!!productos) {
-      console.log("detailcontainerfuncion");
       let productoFiltrado = productos.filter((item) => item.id == idProducto);
-      setProducto({ productoFiltrado });
+      setProducto(productoFiltrado[0]);
     }
   };
-
+  //para mostrar la cantidad ya agregada al count
+  const cantAmount = data.items.find(({ id }) => id === idProducto);
   useEffect(() => {
     getProductById();
-    console.log("detail container use effect");
   }, []);
   return (
     <>
-      <h1>Detail container</h1>
       {productos ? (
-        <ProductDetail producto={producto} handleRedirect={handleRedirect} />
+        <ProductDetail
+          producto={producto}
+          handleRedirect={handleRedirect}
+          amount={cantAmount.amount}
+        />
       ) : (
         <Loading />
       )}
@@ -39,17 +41,3 @@ const DetailContainer = () => {
   );
 };
 export default DetailContainer;
-
-/*
-
-  useEffect(() => {
-    getItems
-      .then((res) => {
-        const cartItem = data.items.find(
-          ({ idProducto }) => idProducto === res.idProducto
-        );
-        setItem({ ...res, amount: cartItem ? cartItem.amount : 1 });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  */

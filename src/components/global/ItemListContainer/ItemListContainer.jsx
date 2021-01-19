@@ -12,7 +12,6 @@ const ItemListContainer = () => {
 
   const getProductsFromDB = () => {
     if (productos) {
-      console.log(productos);
       if (!!categoria) {
         let arrFiltrado = productos.filter(
           (item) => item.data.categoria == categoria
@@ -29,7 +28,6 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     getProductsFromDB();
-    console.log("console de itemlistcontainer");
   }, []);
   return (
     <>
