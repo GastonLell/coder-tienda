@@ -27,7 +27,7 @@ const DBContext = ({ children }) => {
   return (
     <>
       <StoreProduct.Provider value={[productos, setProductos]}>
-        ,{children}
+        {children}
       </StoreProduct.Provider>
     </>
   );

@@ -1,19 +1,26 @@
 import { Store } from "../../../store/CartContext";
 import firebase from "firebase/app";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CheckoutStyle } from "./CheckoutStyle";
 import { getFireStore } from "../../../db/config";
-
+import FormCheckout from "./FormCheckout";
+import DetailProductsCart from "./DetailProductsCart";
+import SaleConfirmed from "./SaleConfirmed";
 const Checkout = () => {
   const db = getFireStore();
 
   const [data, setData] = useContext(Store);
 
+  const [idVenta, setIdVenta] = useState();
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
     email: "",
     tel: "",
+    localidad: "",
+    provincia: "",
+    CP: "",
+    comentario: "",
   });
 
   const compra = {
@@ -26,43 +33,32 @@ const Checkout = () => {
   const handleChangeInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
     db.collection("ventas")
       .add(compra)
-      .then(({ id }) => console.log(id))
+      .then(({ id }) => setIdVenta(id))
+
+      .then(() => document.getElementById("formCheckout").reset())
+
       .catch((e) => console.log(e));
   };
-
+  useEffect(() => {
+    setIdVenta("");
+  }, []);
   return (
     <CheckoutStyle>
-      <form onSubmit={handleSubmitForm}>
-        <input
-          type="text"
-          onChange={handleChangeInput}
-          name="nombre"
-          placeholder="Nombre"
+      {/* <DetailProductsCart /> */}
+
+      {idVenta ? (
+        <SaleConfirmed idVenta={idVenta} />
+      ) : (
+        <FormCheckout
+          handleChangeInput={handleChangeInput}
+          handleSubmitForm={handleSubmitForm}
         />
-        <input
-          type="text"
-          onChange={handleChangeInput}
-          name="apellido"
-          placeholder="Apellido"
-        />
-        <input
-          type="email"
-          onChange={handleChangeInput}
-          name="email"
-          placeholder="E-mail"
-        />
-        <input
-          type="tel"
-          onChange={handleChangeInput}
-          name="Telefono"
-          placeholder="Telefono"
-        />
-        <button type="submit">Pagar</button>
-      </form>
+      )}
     </CheckoutStyle>
   );
 };

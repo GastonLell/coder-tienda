@@ -32,7 +32,7 @@ const DetailContainer = () => {
         <ProductDetail
           producto={producto}
           handleRedirect={handleRedirect}
-          amount={cantAmount.amount}
+          amount={cantAmount?.amount}
         />
       ) : (
         <Loading />

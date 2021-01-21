@@ -8,6 +8,7 @@ import ItemListContainer from "./components/global/ItemListContainer/ItemListCon
 import DetailContainer from "./components/Detail/DetailContainer";
 import CartContainer from "./components/global/Cart/CartContainer";
 import Checkout from "./components/global/Checkout/CheckoutContainer";
+
 function App() {
   return (
     <div className="App">
