@@ -24,4 +24,7 @@ export const FooterStyle = styled.footer`
     color: ${Colores.colorTres};
     padding: 0 15px;
   }
+  a:hover {
+    color: ${Colores.colorCuatro};
+  }
 `;
