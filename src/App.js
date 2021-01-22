@@ -8,7 +8,7 @@ import ItemListContainer from "./components/global/ItemListContainer/ItemListCon
 import DetailContainer from "./components/Detail/DetailContainer";
 import CartContainer from "./components/global/Cart/CartContainer";
 import Checkout from "./components/global/Checkout/CheckoutContainer";
-
+import FooterContainer from "./components/global/Footer/FooterContainer";
 function App() {
   return (
     <div className="App">
@@ -33,6 +33,7 @@ function App() {
                 <DetailContainer />
               </Route>
             </Switch>
+            <FooterContainer />
           </CartContext>
         </DBContext>
       </BrowserRouter>
