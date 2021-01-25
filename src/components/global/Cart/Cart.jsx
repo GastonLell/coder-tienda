@@ -7,7 +7,10 @@ const Cart = ({ item, removeItem }) => {
   return (
     <CartStyle>
       <div className="detalle">
-        <img src="https://placehold.it/100x120" alt="imagen-producto" />
+        <img
+          src={item.data.imagen || "https://placehold.it/100x120"}
+          alt="imagen-producto"
+        />
         <div className="info">
           <h2>{item.data.nombre}</h2>
           <h3>${item.data.precio}</h3>

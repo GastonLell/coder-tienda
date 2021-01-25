@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DetailStyle } from "./DetailStyle";
 import CountContainer from "../global/Count/CountContainer";
 import AddCartContainer from "../global/AddCart/AddCartContainer";
+
 import { BsCreditCard } from "react-icons/bs";
 import { SiVisa } from "react-icons/si";
 import { RiMastercardLine } from "react-icons/ri";
@@ -9,11 +10,13 @@ import { BiCheckShield } from "react-icons/bi";
 
 const ProductDetail = ({ producto, handleRedirect, amount }) => {
   const [count, setCount] = useState(!!amount ? amount : 1);
-
   return (
     <DetailStyle>
       <div className="slide-img">
-        <img src="https://placehold.it/400x400" alt="detalle-producto" />
+        <img
+          src={producto?.data?.imagen || "https://placehold.it/350x500"}
+          alt={producto?.data?.detalle}
+        />
       </div>
       <div className="detalle-producto">
         <h2>{producto?.data?.nombre}</h2>

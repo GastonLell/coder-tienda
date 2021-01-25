@@ -35,6 +35,11 @@ export const CartStyle = styled.div`
     margin-left: 15px;
     text-align: left;
   }
+  img {
+    width: 90px;
+    height: 130px;
+    object-fit: scale-down;
+  }
   h2 {
     font-size: 25px;
     margin-bottom: 10px;

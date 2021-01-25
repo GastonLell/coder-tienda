@@ -17,7 +17,7 @@ const ItemList = ({ categoria, productos }) => {
             nombre={item.data.nombre}
             precio={item.data.precio}
             descripcion={item.data.detalle}
-            imagenProducto={undefined}
+            imagen={item.data.imagen}
             categoria={item.data.categoria}
             stock={item.data.stock}
             key={item.id}

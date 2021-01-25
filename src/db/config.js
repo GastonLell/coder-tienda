@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "@firebase/firestore";
+import "firebase/storage";
 
 const app = firebase.initializeApp({
   apiKey: process.env.API_KEY,
@@ -10,9 +11,6 @@ const app = firebase.initializeApp({
   appId: "1:1061561410198:web:220a4f10c17b83c2db58b7",
 });
 
-export const getFirebase = () => {
-  return app;
-};
-export const getFireStore = () => {
-  return firebase.firestore(app);
-};
+export const getFirebase = () => app;
+
+export const getFireStore = () => firebase.firestore(app);

@@ -143,6 +143,11 @@ export const CartList = styled(ModalStyled)`
   }
   img {
     border-radius: 8px;
+    height: 70px;
+    margin-right: 10px;
+    width: 60px;
+    object-fit: scale-down;
+    background-color: #fff;
   }
   td {
     color: ${Colores.colorCinco};

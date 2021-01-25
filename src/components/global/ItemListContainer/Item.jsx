@@ -1,11 +1,10 @@
 import { ItemStyle } from "./Style";
 import { Link } from "react-router-dom";
-
 const Item = ({
   nombre,
   precio,
   descripcion,
-  imagenProducto,
+  imagen,
   idProducto,
   categoria,
 }) => {
@@ -13,7 +12,7 @@ const Item = ({
     <ItemStyle>
       <Link className="link-route" to={`/${categoria}/${idProducto}`}>
         <img
-          src={imagenProducto || "https://placehold.it/200x250"}
+          src={imagen || "https://placehold.it/200x250"}
           alt="imagen producto"
         />
         <div className="info">
