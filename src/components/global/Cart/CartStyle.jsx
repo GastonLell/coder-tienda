@@ -88,7 +88,7 @@ export const FootCart = styled.div`
 `;
 export const BtnFinalizar = styled.button`
   background-color: ${Colores.colorDos};
-  margin: 40px 0px 20px 20px;
+  margin: 43px 0px 20px 20px;
   padding: 5px;
   height: 40px;
   width: 150px;

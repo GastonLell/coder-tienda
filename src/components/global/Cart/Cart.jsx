@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { CartStyle, Delete } from "./CartStyle";
 import CountContainer from "../Count/CountContainer";
-
 const Cart = ({ item, removeItem }) => {
   const [count, setCount] = useState(item && item.amount ? item.amount : 1);
   return (
@@ -30,7 +29,12 @@ const Cart = ({ item, removeItem }) => {
         )}
       </div>
 
-      <div className="sub-total">${item.data.precio * item.amount}</div>
+      <div className="sub-total">
+        {(item.data.precio * item.amount).toLocaleString("es-AR", {
+          style: "currency",
+          currency: "ARS",
+        })}
+      </div>
       <Delete onClick={() => removeItem(item.id)}>X</Delete>
     </CartStyle>
   );

@@ -3,6 +3,7 @@ import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
 import { Store } from "../../../store/CartContext";
 import { useContext, useEffect } from "react";
 import getItemsAmount from "../../../helpers/cart/getItemsAmount";
+import getFullPrice from "../../../helpers/getFullPrice";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
@@ -55,12 +56,14 @@ const CartContainer = () => {
         ))}
 
       <FootCart>
-        <h2>Total</h2>
-        <span>
-          {data.totalVenta
-            ? `$ ${data.totalVenta}`
-            : "No hay productos seleccionados"}
-        </span>
+        {getFullPrice(data.items) === "0,00" ? (
+          <>
+            <h2>Total</h2>
+            <span>{getFullPrice(data.items)}</span>
+          </>
+        ) : (
+          <span>No hay productos seleccionados</span>
+        )}
       </FootCart>
 
       <FootCart>
