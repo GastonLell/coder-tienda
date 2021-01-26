@@ -1,10 +1,10 @@
 import Count from "./Count";
-
-const CountContainer = ({ max, count, addCount, substCount }) => {
+import { useParams } from "react-router-dom";
+const CountContainer = ({ max, count, handleClickSubst, handleClickAdd }) => {
   return (
     <Count
-      handleClickSubst={substCount}
-      handleClickAdd={addCount}
+      handleClickSubst={handleClickSubst}
+      handleClickAdd={handleClickAdd}
       count={count}
       max={max}
     />

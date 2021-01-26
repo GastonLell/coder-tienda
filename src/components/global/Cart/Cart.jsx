@@ -1,8 +1,26 @@
 import { useState } from "react";
 import { CartStyle, Delete } from "./CartStyle";
 import CountContainer from "../Count/CountContainer";
-const Cart = ({ item, removeItem }) => {
-  const [count, setCount] = useState(item && item.amount ? item.amount : 1);
+
+const Cart = ({ data, setData, item, removeItem }) => {
+  const [count, setCount] = useState(item && item.amount ? item.amount : 0);
+
+  const handleClickSubst = () => {
+    data.items.map((producto) => {
+      if (producto.id === item.id) {
+        producto.amount = producto.amount - 1;
+        setCount(producto.amount);
+      }
+    });
+  };
+  const handleClickAdd = () => {
+    data.items.map((producto) => {
+      if (producto.id === item.id) {
+        producto.amount = producto.amount + 1;
+        setCount(producto.amount);
+      }
+    });
+  };
   return (
     <CartStyle>
       <div className="detalle">
@@ -19,8 +37,8 @@ const Cart = ({ item, removeItem }) => {
         <CountContainer
           max={item.data.stock}
           count={count}
-          addCount={() => setCount(count + 1)}
-          substCount={() => setCount(count - 1)}
+          handleClickAdd={handleClickAdd}
+          handleClickSubst={handleClickSubst}
         />
         {!!item.stock > 1 ? (
           <span>1 elemento disponible</span>

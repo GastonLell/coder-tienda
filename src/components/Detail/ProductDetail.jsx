@@ -2,7 +2,6 @@ import { useState } from "react";
 import { DetailStyle } from "./DetailStyle";
 import CountContainer from "../global/Count/CountContainer";
 import AddCartContainer from "../global/AddCart/AddCartContainer";
-
 import { BsCreditCard } from "react-icons/bs";
 import { SiVisa } from "react-icons/si";
 import { RiMastercardLine } from "react-icons/ri";
@@ -10,6 +9,7 @@ import { BiCheckShield } from "react-icons/bi";
 
 const ProductDetail = ({ producto, handleRedirect, amount }) => {
   const [count, setCount] = useState(!!amount ? amount : 1);
+
   return (
     <DetailStyle>
       <div className="slide-img">
@@ -46,8 +46,8 @@ const ProductDetail = ({ producto, handleRedirect, amount }) => {
         <CountContainer
           max={producto?.data?.stock}
           count={count}
-          addCount={() => setCount(count + 1)}
-          substCount={() => setCount(count - 1)}
+          handleClickAdd={() => setCount(count + 1)}
+          handleClickSubst={() => setCount(count - 1)}
         />
         <AddCartContainer
           producto={producto}
@@ -59,9 +59,3 @@ const ProductDetail = ({ producto, handleRedirect, amount }) => {
   );
 };
 export default ProductDetail;
-
-//esto iria en setCount
-//
-/*   useEffect(() => {
-    setCount(item.amount);
-  }, [item]); */

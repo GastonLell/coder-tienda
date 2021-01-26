@@ -1,28 +1,16 @@
 import Cart from "./Cart";
 import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
 import { Store } from "../../../store/CartContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import getItemsAmount from "../../../helpers/cart/getItemsAmount";
 import getFullPrice from "../../../helpers/getFullPrice";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const [data, setData] = useContext(Store);
-
-  const totalVenta = () => {
-    let resultado = 0;
-    let subTotal;
-
-    data.items.map((item) => {
-      subTotal = item.data.precio * item.amount;
-      resultado += subTotal;
-    });
-    return resultado;
-  };
-
+  const [precioTotal, setPrecioTotal] = useState();
   const removeItem = (idParams) => {
     const arrayEditado = data.items.filter((item) => item.id !== idParams);
-
     setData({
       ...data,
       items: arrayEditado,
@@ -31,19 +19,12 @@ const CartContainer = () => {
   const clearCart = () => {
     setData({
       ...data,
-      totalVenta: NaN,
       items: [],
     });
   };
-
   useEffect(() => {
-    let num = totalVenta();
-    setData({
-      ...data,
-      totalVenta: num,
-    });
-  }, [data.items]);
-
+    setPrecioTotal(getFullPrice(data.items));
+  }, []);
   return (
     <CartContStyle>
       <h2 className="count-carrito">
@@ -52,14 +33,20 @@ const CartContainer = () => {
 
       {!!data.items &&
         data.items.map((item, index) => (
-          <Cart item={item} idVenta={index} removeItem={removeItem} />
+          <Cart
+            item={item}
+            data={data}
+            setData={setData}
+            idVenta={index}
+            removeItem={removeItem}
+          />
         ))}
 
       <FootCart>
-        {getFullPrice(data.items) === "0,00" ? (
+        {getFullPrice(data.items) !== "0,00" ? (
           <>
             <h2>Total</h2>
-            <span>{getFullPrice(data.items)}</span>
+            <span>{precioTotal}</span>
           </>
         ) : (
           <span>No hay productos seleccionados</span>
