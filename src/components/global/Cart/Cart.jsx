@@ -2,24 +2,32 @@ import { useState } from "react";
 import { CartStyle, Delete } from "./CartStyle";
 import CountContainer from "../Count/CountContainer";
 
-const Cart = ({ data, setData, item, removeItem }) => {
-  const [count, setCount] = useState(item && item.amount ? item.amount : 0);
-
+const Cart = ({ data, setData, item, removeItem, cantidad }) => {
+  const [count, setCount] = useState(!!cantidad ? cantidad : 0);
   const handleClickSubst = () => {
-    data.items.map((producto) => {
+    setCount(count - 1);
+
+    console.log("console desde count cart");
+
+    /* data.items.map((producto) => {
       if (producto.id === item.id) {
         producto.amount = producto.amount - 1;
         setCount(producto.amount);
       }
-    });
+    }); */
   };
   const handleClickAdd = () => {
-    data.items.map((producto) => {
-      if (producto.id === item.id) {
-        producto.amount = producto.amount + 1;
-        setCount(producto.amount);
+    setCount(count + 1);
+    const newDataCart = data.items.map((itemCart) => {
+      if (itemCart) {
+        console.log(itemCart);
       }
     });
+    setData({
+      ...data,
+      data: [...data.items, { cantidad: count }],
+    });
+    console.log(data.items);
   };
   return (
     <CartStyle>
@@ -29,13 +37,13 @@ const Cart = ({ data, setData, item, removeItem }) => {
           alt="imagen-producto"
         />
         <div className="info">
-          <h2>{item.data.nombre}</h2>
-          <h3>${item.data.precio}</h3>
+          <h2>{item?.data.nombre}</h2>
+          <h3>${item?.data.precio}</h3>
         </div>
       </div>
       <div className="count">
         <CountContainer
-          max={item.data.stock}
+          max={item?.data.stock}
           count={count}
           handleClickAdd={handleClickAdd}
           handleClickSubst={handleClickSubst}
@@ -48,7 +56,7 @@ const Cart = ({ data, setData, item, removeItem }) => {
       </div>
 
       <div className="sub-total">
-        {(item.data.precio * item.amount).toLocaleString("es-AR", {
+        {(item.data.precio * cantidad).toLocaleString("es-AR", {
           style: "currency",
           currency: "ARS",
         })}

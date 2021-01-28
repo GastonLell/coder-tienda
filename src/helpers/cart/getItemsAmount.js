@@ -1,6 +1,6 @@
 const getItemsAmount = (items = []) => {
   let amount = 0;
-  items.forEach(({ amount: itemAmount }) => (amount += itemAmount));
+  items.forEach((item) => (amount += item.cantidad));
   return amount;
 };
 

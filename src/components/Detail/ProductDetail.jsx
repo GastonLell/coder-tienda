@@ -8,8 +8,8 @@ import { RiMastercardLine } from "react-icons/ri";
 import { BiCheckShield } from "react-icons/bi";
 
 const ProductDetail = ({ producto, handleRedirect, amount }) => {
-  const [count, setCount] = useState(!!amount ? amount : 1);
-
+  //const [count, setCount] = useState(!!amount ? amount : 1);
+  const [count, setCount] = useState(1);
   return (
     <DetailStyle>
       <div className="slide-img">

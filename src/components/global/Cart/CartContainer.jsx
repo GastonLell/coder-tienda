@@ -9,22 +9,33 @@ import { Link } from "react-router-dom";
 const CartContainer = () => {
   const [data, setData] = useContext(Store);
   const [precioTotal, setPrecioTotal] = useState();
+
   const removeItem = (idParams) => {
-    const arrayEditado = data.items.filter((item) => item.id !== idParams);
+    const arrayEditado = data.items.filter(
+      (itemObj) => itemObj.item.id !== idParams
+    );
     setData({
       ...data,
       items: arrayEditado,
     });
   };
+
   const clearCart = () => {
     setData({
       ...data,
-      items: [],
+      items: [
+        {
+          item: [],
+          cantidad: 0,
+        },
+      ],
     });
   };
+
   useEffect(() => {
     setPrecioTotal(getFullPrice(data.items));
   }, []);
+
   return (
     <CartContStyle>
       <h2 className="count-carrito">
@@ -32,18 +43,18 @@ const CartContainer = () => {
       </h2>
 
       {!!data.items &&
-        data.items.map((item, index) => (
+        data.items.map((item) => (
           <Cart
-            item={item}
+            item={item.item}
             data={data}
             setData={setData}
-            idVenta={index}
+            cantidad={item.cantidad}
             removeItem={removeItem}
           />
         ))}
 
       <FootCart>
-        {getFullPrice(data.items) !== "0,00" ? (
+        {precioTotal !== "0,00" ? (
           <>
             <h2>Total</h2>
             <span>{precioTotal}</span>

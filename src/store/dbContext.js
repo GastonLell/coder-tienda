@@ -15,13 +15,11 @@ const DBContext = ({ children }) => {
           arr.push({ data: doc.data(), id: doc.id });
         });
         setProductos(arr);
-        console.log(productos);
       })
       .catch((e) => console.log(e));
   };
   useEffect(() => {
     getProducts();
-    console.log("console desde context DB");
   }, []);
 
   return (
