@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { DetailStyle } from "./DetailStyle";
 import CountContainer from "../global/Count/CountContainer";
 import AddCartContainer from "../global/AddCart/AddCartContainer";
@@ -9,6 +9,10 @@ import { BiCheckShield } from "react-icons/bi";
 
 const ProductDetail = ({ producto, handleRedirect, amount }) => {
   const [count, setCount] = useState(!!amount ? amount : 1);
+  /*   const modifyCounter = useCallback((diff) => {
+    setCount(count + diff);
+  }, [diff]);
+ */
 
   return (
     <DetailStyle>
@@ -58,4 +62,5 @@ const ProductDetail = ({ producto, handleRedirect, amount }) => {
     </DetailStyle>
   );
 };
+
 export default ProductDetail;
