@@ -3,7 +3,7 @@ import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
 import { Store } from "../../../store/CartContext";
 import { useContext, useEffect, useState } from "react";
 import getItemsAmount from "../../../helpers/cart/getItemsAmount";
-import getFullPrice from "../../../helpers/getFullPrice";
+import getFullPrice from "../../../helpers/cart/getFullPrice";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
@@ -34,7 +34,7 @@ const CartContainer = () => {
 
   useEffect(() => {
     setPrecioTotal(getFullPrice(data.items));
-  }, []);
+  }, [data]);
 
   return (
     <CartContStyle>
