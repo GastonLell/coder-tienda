@@ -2,7 +2,7 @@ const getFullPrice = (items = []) => {
   let total = 0;
 
   items.forEach((item) => {
-    let subtotal = item.amount * item.data.precio;
+    let subtotal = item.cantidad * item.item.data.precio;
     total += subtotal;
   });
 
