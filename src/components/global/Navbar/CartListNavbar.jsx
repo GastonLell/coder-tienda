@@ -8,26 +8,23 @@ const CartListNavbar = ({ data }) => {
         Ir al carrito
       </Link>
 
-      {data.items &&
-        data.items.map((item) => {
+      <table>
+        {data.items.map((item) => {
           return (
-            <table>
-              <tr>
-                <td>
-                  <img
-                    src={
-                      item.item.data.imagen || "https://placehold.it/100x130"
-                    }
-                  />
-                </td>
-                <td>
-                  {item.item.data.nombre}
-                  <span className="amount-item">({item.cantidad})</span>
-                </td>
-              </tr>
-            </table>
+            <tr key={item.item.id}>
+              <td>
+                <img
+                  src={item.item.data.imagen || "https://placehold.it/100x130"}
+                />
+              </td>
+              <td>
+                {item.item.data.nombre}
+                <span className="amount-item">({item.cantidad})</span>
+              </td>
+            </tr>
           );
         })}
+      </table>
     </CartList>
   );
 };

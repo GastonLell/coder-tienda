@@ -118,7 +118,8 @@ export const CartList = styled(ModalStyled)`
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  background-color: ${Colores.colorUno};
+  background-color: ${Colores.colorUno} !important;
+
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
@@ -141,30 +142,35 @@ export const CartList = styled(ModalStyled)`
   &::-webkit-scrollbar-track {
     border-radius: 10px;
   }
+
   img {
     border-radius: 8px;
     height: 70px;
     margin-right: 10px;
     width: 60px;
     object-fit: scale-down;
-    background-color: #fff;
   }
+
   td {
     color: ${Colores.colorCinco};
     padding-top: 10px;
     font-size: 18px;
   }
+
   .amount-item {
     color: ${Colores.colorTres};
   }
+
   .widgetToCart {
     text-align: right;
   }
+
   .widgetToCart:hover {
     border-bottom: none;
     color: ${Colores.colorCuatro};
   }
 `;
+
 export const BtnMenu = styled.button`
   height: auto;
   line-height: 30px;
