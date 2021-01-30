@@ -118,7 +118,18 @@ export const CartList = styled(ModalStyled)`
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  opacity: 1 !important;
   background-color: ${Colores.colorUno} !important;
+
+  .full-price {
+    color: ${Colores.colorUno};
+    background-color: ${Colores.colorCinco};
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: right;
+  }
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -144,11 +155,12 @@ export const CartList = styled(ModalStyled)`
   }
 
   img {
-    border-radius: 8px;
+    border-radius: 10px;
     height: 70px;
     margin-right: 10px;
     width: 60px;
     object-fit: scale-down;
+    background-color: #fff;
   }
 
   td {
@@ -161,7 +173,7 @@ export const CartList = styled(ModalStyled)`
     color: ${Colores.colorTres};
   }
 
-  .widgetToCart {
+  .to-cart {
     text-align: right;
   }
 

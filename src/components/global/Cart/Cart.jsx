@@ -1,84 +1,81 @@
-import { useState } from "react";
-import { CartStyle, Delete } from "./CartStyle";
-import CountContainer from "../Count/CountContainer";
+import { Link } from "react-router-dom";
+import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
+import { Store } from "../../../store/CartContext";
+import { useContext, useEffect, useState } from "react";
+import CartView from "./CartView";
+import getItemsAmount from "../../../helpers/cart/getItemsAmount";
+import getFullPrice from "../../../helpers/cart/getFullPrice";
 
-const Cart = ({ data, setData, item, removeItem, cantidad }) => {
-  const [count, setCount] = useState(!!cantidad ? cantidad : 0);
+const Cart = () => {
+  const [data, setData] = useContext(Store);
 
-  const handleClickSubst = () => {
-    const newData = {
-      items: [],
-    };
+  const [precioTotal, setPrecioTotal] = useState();
 
-    data.items.map((itemCart) => {
-      if (itemCart.item.id == item.id) {
-        itemCart.cantidad = itemCart.cantidad - 1;
-        setCount(itemCart.cantidad);
-      }
-
-      newData.items.push(itemCart);
-    });
+  const removeItem = (idParams) => {
+    const arrayEditado = data.items.filter(
+      (itemObj) => itemObj.item.id !== idParams
+    );
 
     setData({
       ...data,
-      newData,
+      items: arrayEditado,
     });
   };
 
-  const handleClickAdd = () => {
-    const newData = {
-      items: [],
-    };
-
-    data.items.map((itemCart) => {
-      if (itemCart.item.id == item.id) {
-        itemCart.cantidad = itemCart.cantidad + 1;
-        setCount(count + 1);
-      }
-
-      newData.items.push(itemCart);
-    });
-
+  const clearCart = () => {
     setData({
       ...data,
-      newData,
+      items: [],
     });
   };
+
+  useEffect(() => {
+    setPrecioTotal(getFullPrice(data.items));
+  }, [data]);
 
   return (
-    <CartStyle>
-      <div className="detalle">
-        <img
-          src={item?.data.imagen || "https://placehold.it/100x120"}
-          alt="imagen-producto"
-        />
-        <div className="info">
-          <h2>{item?.data.nombre}</h2>
-          <h3>${item?.data.precio}</h3>
-        </div>
-      </div>
-      <div className="count">
-        <CountContainer
-          max={item?.data?.stock}
-          count={count}
-          handleClickAdd={handleClickAdd}
-          handleClickSubst={handleClickSubst}
-        />
-        {!!item.stock > 1 ? (
-          <span>1 elemento disponible</span>
-        ) : (
-          <span>{item?.data.stock} elementos disponibles</span>
-        )}
-      </div>
+    <CartContStyle>
+      <h2 className="count-carrito">
+        Tu carrito ({getItemsAmount(data.items)})
+      </h2>
 
-      <div className="sub-total">
-        {(item?.data.precio * cantidad).toLocaleString("es-AR", {
-          style: "currency",
-          currency: "ARS",
-        })}
-      </div>
-      <Delete onClick={() => removeItem(item.id)}>X</Delete>
-    </CartStyle>
+      {!!data.items &&
+        data.items.map((item) => (
+          <CartView
+            key={item.id}
+            item={item.item}
+            data={data}
+            setData={setData}
+            cantidad={item.cantidad}
+            removeItem={removeItem}
+          />
+        ))}
+
+      <FootCart>
+        {precioTotal !== "0.00" ? (
+          <>
+            <h2>Total</h2>
+            <span>{precioTotal}</span>
+          </>
+        ) : (
+          <span>No hay productos seleccionados</span>
+        )}
+      </FootCart>
+
+      <FootCart>
+        <BtnFinalizar onClick={clearCart} className="btn-clear">
+          Limpiar carrito
+        </BtnFinalizar>
+
+        <Link to="/">
+          <BtnFinalizar className="btn-mas">Elegir mas productos</BtnFinalizar>
+        </Link>
+
+        <Link to="/checkout">
+          <BtnFinalizar>Finalizar compra</BtnFinalizar>
+        </Link>
+      </FootCart>
+    </CartContStyle>
   );
 };
 export default Cart;

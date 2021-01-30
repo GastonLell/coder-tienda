@@ -1,10 +1,12 @@
 import { CartList } from "./Style";
 import { Link } from "react-router-dom";
+import getFullPrice from "../../../helpers/cart/getFullPrice";
 
 const CartListNavbar = ({ data }) => {
   return (
     <CartList>
-      <Link className="widgetToCart" to="/cart">
+      <span className="full-price">Total: {getFullPrice(data.items)}</span>
+      <Link className="to-cart" to="/cart">
         Ir al carrito
       </Link>
 

@@ -1,26 +1,26 @@
 import ItemList from "./ItemList";
 import Loading from "./../Loading/Loading";
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 import { StoreProduct } from "../../../store/dbContext";
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ categoria }) => {
   const [items, setItems] = useState({});
-  const { categoria } = useParams();
 
-  const [productos, setProductos] = useContext(StoreProduct);
+  const [productos] = useContext(StoreProduct);
 
   const getProductsFromDB = () => {
     if (productos) {
       if (!!categoria) {
         let arrFiltrado = productos.filter(
-          (item) => item.data.categoria == categoria
+          (item) => item.data.categoria === categoria
         );
+
         setItems(arrFiltrado);
       } else {
         let arrFiltrado = productos.filter(
-          (item) => item.data.destacado == true
+          (item) => item.data.destacado === true
         );
+
         setItems(arrFiltrado);
       }
     }
@@ -28,7 +28,8 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     getProductsFromDB();
-  }, []);
+  }, [categoria]);
+
   return (
     <>
       {items.length ? (
