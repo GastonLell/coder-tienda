@@ -1,19 +1,21 @@
-import Cart from "./Cart";
+import { Link } from "react-router-dom";
 import { CartContStyle, FootCart, BtnFinalizar } from "./CartStyle";
 import { Store } from "../../../store/CartContext";
 import { useContext, useEffect, useState } from "react";
+import Cart from "./Cart";
 import getItemsAmount from "../../../helpers/cart/getItemsAmount";
 import getFullPrice from "../../../helpers/cart/getFullPrice";
-import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const [data, setData] = useContext(Store);
+
   const [precioTotal, setPrecioTotal] = useState();
 
   const removeItem = (idParams) => {
     const arrayEditado = data.items.filter(
       (itemObj) => itemObj.item.id !== idParams
     );
+
     setData({
       ...data,
       items: arrayEditado,
@@ -23,13 +25,10 @@ const CartContainer = () => {
   const clearCart = () => {
     setData({
       ...data,
-      items: [
-        {
-          item: [],
-          cantidad: 0,
-        },
-      ],
+      items: [],
     });
+    precioTotal = "0.00";
+    console.log(precioTotal);
   };
 
   useEffect(() => {
@@ -45,6 +44,7 @@ const CartContainer = () => {
       {!!data.items &&
         data.items.map((item) => (
           <Cart
+            key={item.id}
             item={item.item}
             data={data}
             setData={setData}
@@ -54,7 +54,7 @@ const CartContainer = () => {
         ))}
 
       <FootCart>
-        {precioTotal !== "0,00" ? (
+        {precioTotal !== "0.00" ? (
           <>
             <h2>Total</h2>
             <span>{precioTotal}</span>
