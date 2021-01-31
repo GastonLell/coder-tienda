@@ -1,4 +1,4 @@
-import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import ItemListContainer from "../../global/ItemListContainer/ItemListContainer";
 
 import { useParams } from "react-router-dom";
 

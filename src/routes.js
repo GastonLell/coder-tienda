@@ -6,9 +6,9 @@ import DBContext from "./store/dbContext";
 //  Routes components
 import Navbar from "./components/global/Navbar/Navbar";
 import Home from "./components/containers/Home/Home";
-import Category from "./components/global/Category/Category";
-import DetailContainer from "./components/Detail/DetailContainer";
-import Cart from "./components/global/Cart/Cart";
+import Category from "./components/containers/Category/Category";
+import Detail from "./components/containers/Detail/Detail";
+import Cart from "./components/containers/Cart/Cart";
 import Checkout from "./components/global/Checkout/CheckoutContainer";
 import Footer from "./components/global/Footer/Footer";
 
@@ -36,7 +36,7 @@ const Routes = () => (
           </Route>
 
           <Route exact path="/:categoria/:idProducto">
-            <DetailContainer />
+            <Detail />
           </Route>
         </Switch>
 
