@@ -1,11 +1,11 @@
 import ProductDetail from "./ProductDetail";
-import Loading from "../global/Loading/Loading";
+import Loading from "../../global/Loading/Loading";
 import { useEffect, useState, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Store } from "../../store/CartContext";
-import { StoreProduct } from "../../store/dbContext";
+import { Store } from "../../../store/CartContext";
+import { StoreProduct } from "../../../store/dbContext";
 
-const DetailContainer = () => {
+const Detail = () => {
   const [producto, setProducto] = useState({});
   const [productos, setProductos] = useContext(StoreProduct);
   const [data] = useContext(Store);
@@ -40,4 +40,4 @@ const DetailContainer = () => {
     </>
   );
 };
-export default DetailContainer;
+export default Detail;

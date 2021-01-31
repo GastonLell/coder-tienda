@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CartStyle, Delete } from "./CartStyle";
-import CountContainer from "../Count/CountContainer";
+import CountContainer from "../../global/Count/CountContainer";
 
 const CartView = ({ data, setData, item, removeItem, cantidad }) => {
   const [count, setCount] = useState(!!cantidad ? cantidad : 0);

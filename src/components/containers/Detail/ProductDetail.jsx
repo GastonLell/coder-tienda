@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { DetailStyle } from "./DetailStyle";
-import CountContainer from "../global/Count/CountContainer";
-import AddCartContainer from "../global/AddCart/AddCartContainer";
+import CountContainer from "../../global/Count/CountContainer";
+import AddCartContainer from "../../global/AddCart/AddCartContainer";
 import { BsCreditCard } from "react-icons/bs";
 import { SiVisa } from "react-icons/si";
 import { RiMastercardLine } from "react-icons/ri";

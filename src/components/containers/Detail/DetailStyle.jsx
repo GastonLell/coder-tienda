@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colores, Fuentes } from "../utils/Constants";
+import { Colores, Fuentes } from "../../utils/Constants";
 
 export const DetailStyle = styled.article`
   display: flex;
