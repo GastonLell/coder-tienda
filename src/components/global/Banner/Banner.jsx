@@ -1,19 +1,11 @@
 import { BannerStyle } from "./Style";
 import { useState } from "react";
-const Banner = () => {
-  // terminar slider de banner
-  const [slide, setSlide] = useState(true);
+const Banner = ({ bannerBoolean }) => {
+  const [slide, setSlide] = useState(bannerBoolean);
 
   return (
     <>
       <BannerStyle>
-        <button className="btn-left" onClick={() => setSlide(!slide)}>
-          &#10094;
-        </button>
-        <button className="btn-right" onClick={() => setSlide(!slide)}>
-          &#10095;
-        </button>
-
         {!slide ? (
           <div id="slide-uno" className="slide-banner">
             <h2>

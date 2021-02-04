@@ -6,8 +6,10 @@ import { AlertMessageStyle } from "./AddCartStyle";
 const AddCartContainer = ({ handleRedirect, producto, count }) => {
   const [message, setMessage] = useState({});
   const [data, setData] = useContext(Store);
+
   const handleClickCart = () => {
     const isInCart = data.items.find((cart) => cart.item.id === producto.id);
+
     if (isInCart) {
       setMessage({
         text: `${producto.data.nombre} ya está seleccionado`,
@@ -19,6 +21,7 @@ const AddCartContainer = ({ handleRedirect, producto, count }) => {
           ...data,
           items: [...data.items, { item: producto, cantidad: count }],
         });
+
         setMessage({
           text:
             count === 1

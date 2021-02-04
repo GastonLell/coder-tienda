@@ -17,16 +17,17 @@ export const BannerStyle = styled.div`
   }
 
   #slide-uno {
+    padding: 20px;
     min-height: 300px;
-    background-size: 100%;
+    background-size: 110%;
     background-image: url(${bannerBateria});
     background-color: ${Colores.colorUno};
-    padding: 40px;
     background-blend-mode: multiply;
     animation: slide 5s;
   }
 
   #slide-dos {
+    padding: 20px;
     min-height: 300px;
     background-blend-mode: multiply;
     background-image: url(${bannerDisco});
@@ -60,22 +61,5 @@ export const BannerStyle = styled.div`
       margin-left: 300px;
       color: ${Colores.colorDos};
     }
-  }
-  button {
-    border: none;
-    background-color: ${Colores.colorCinco};
-    color: ${Colores.colorUno};
-    padding: 5px;
-    font-size: 20px;
-  }
-  .btn-left {
-    position: relative;
-    left: 0;
-    top: 160px;
-  }
-  .btn-right {
-    position: relative;
-    top: 160px;
-    right: 0;
   }
 `;
