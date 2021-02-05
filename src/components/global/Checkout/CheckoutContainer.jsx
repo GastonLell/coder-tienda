@@ -1,17 +1,24 @@
-import { Store } from "../../../store/CartContext";
-import firebase from "firebase/app";
 import { useState, useContext, useEffect } from "react";
-import { CheckoutStyle } from "./CheckoutStyle";
+
+import firebase from "firebase/app";
 import { getFireStore } from "../../../db/config";
+
+import { Store } from "../../../store/CartContext";
+
+import getFullPrice from "../../../helpers/cart/getFullPrice";
+
+import { CheckoutStyle } from "./CheckoutStyle";
 import FormCheckout from "./FormCheckout";
-import DetailProductsCart from "./DetailProductsCart";
 import SaleConfirmed from "./SaleConfirmed";
+import CartListNabvar from "../Navbar/CartListNavbar";
+
 const Checkout = () => {
   const db = getFireStore();
 
   const [data, setData] = useContext(Store);
 
   const [idVenta, setIdVenta] = useState();
+
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -26,7 +33,7 @@ const Checkout = () => {
   const compra = {
     user: formData,
     items: data.items,
-    totalCompra: data.totalVenta,
+    totalCompra: getFullPrice(data.items),
     date: firebase.firestore.Timestamp.fromDate(new Date()),
   };
 
@@ -40,16 +47,17 @@ const Checkout = () => {
       .add(compra)
       .then(({ id }) => setIdVenta(id))
 
-      .then(() => document.getElementById("formCheckout").reset())
-
       .catch((e) => console.log(e));
+    setData({
+      items: [],
+    });
   };
   useEffect(() => {
     setIdVenta("");
   }, []);
   return (
     <CheckoutStyle>
-      {/* <DetailProductsCart /> */}
+      <CartListNabvar data={data} />
 
       {idVenta ? (
         <SaleConfirmed idVenta={idVenta} />

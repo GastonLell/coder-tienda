@@ -15,7 +15,7 @@ export const FormStyle = styled.div`
 
   input,
   textarea {
-    width: 90%;
+    width: 67%;
     display: block;
     margin: 20px;
     border: none;
@@ -35,25 +35,6 @@ export const FormStyle = styled.div`
   }
 `;
 
-export const DetailProductsCartStyle = styled.div`
-  margin: 20px auto;
-  padding: 10px;
-  width: 40%;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 150px;
-  background-color: ${Colores.colorCinco};
-  h4 {
-    align-items: center;
-  }
-  img {
-    max-width: 150px;
-    max-height: 100px;
-  }
-`;
 export const SaleConfirmedStyle = styled.div`
   width: 100%;
   height: 395px;

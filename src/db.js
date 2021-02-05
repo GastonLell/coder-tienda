@@ -7,7 +7,9 @@ firebase.initializeApp({
   authDomain: "crespomusica.firebaseapp.com",
   projectId: "crespomusica",
 });
+
 var db = firebase.firestore();
+
 let productos = [
   {
     id: 1,
