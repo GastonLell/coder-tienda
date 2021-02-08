@@ -57,7 +57,7 @@ const Checkout = () => {
   }, []);
   return (
     <CheckoutStyle>
-      <CartListNabvar data={data} />
+      {data.items.length > 0 && <CartListNabvar data={data} />}
 
       {idVenta ? (
         <SaleConfirmed idVenta={idVenta} />

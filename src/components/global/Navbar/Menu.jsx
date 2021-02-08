@@ -26,14 +26,6 @@ const Menu = ({ openCart, openClosedCart, openMenu }) => {
         Estudio de grabacion
       </NavLink>
 
-      <NavLink
-        className="menu-item"
-        activeClassName="selected"
-        to="/amplificacion"
-      >
-        Amplificadores
-      </NavLink>
-
       <NavLink className="menu-item" activeClassName="selected" to="/accesorio">
         Accesorios
       </NavLink>
