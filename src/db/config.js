@@ -3,7 +3,7 @@ import "@firebase/firestore";
 import "firebase/storage";
 
 const app = firebase.initializeApp({
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyB29Ukx3NZ4frSt7JWtVHwOkvDXnblhhnU",
   authDomain: "crespomusica.firebaseapp.com",
   projectId: "crespomusica",
   storageBucket: "crespomusica.appspot.com",
