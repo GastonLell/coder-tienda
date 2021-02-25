@@ -16,7 +16,7 @@ export const Navbar = styled.header`
 
   h1 {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     padding-top: 10px;
     color: ${Colores.colorCinco};
     font-family: ${Fuentes.fuenteDos};
@@ -64,7 +64,7 @@ export const MenuNav = styled.nav`
     border-bottom: 2px solid ${Colores.colorCinco};
   }
 
-  @media only screen and (min-width: 750px) {
+  @media only screen and (min-width: 768px) {
     font-size: 15px;
     flex-direction: row;
     height: 65px;
@@ -80,6 +80,7 @@ export const Cart = styled.button`
   border: none;
   text-align: center;
   animation: entradaCart 1s;
+
   @keyframes entradaCart {
     0% {
       margin-top: -100%;
@@ -195,7 +196,7 @@ export const BtnMenu = styled.button`
   color: ${Colores.colorCuatro};
   border: none;
 
-  @media only screen and (min-width: 750px) {
+  @media only screen and (min-width: 768px) {
     display: none;
   }
 `;
