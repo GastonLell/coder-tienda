@@ -13,7 +13,7 @@ export const Subtitle = styled.h2`
 
 export const ItemStyle = styled.article`
   max-height: 400px;
-  width: 18%;
+  width: 100%;
   background-color: #fff;
   border-radius: 8px;
   text-align: left;
@@ -25,6 +25,7 @@ export const ItemStyle = styled.article`
   justify-content: space-evenly;
   color: ${Colores.colorUno} !important;
   font-family: ${Fuentes.fuenteDos};
+
   .link-route {
     text-decoration: none;
     text-align: center;
@@ -32,12 +33,12 @@ export const ItemStyle = styled.article`
   .detalle-producto {
     margin: 5px;
     padding: 0 8px;
-    text-align: left;
+    text-align: center;
     color: ${Colores.colorUno};
-    display: none;
   }
   h5 {
     color: ${Colores.colorTres} !important;
+    display: none;
   }
   img {
     width: 100%;
@@ -45,13 +46,21 @@ export const ItemStyle = styled.article`
     object-fit: scale-down;
     max-height: 200px;
   }
+
   &:hover {
     box-shadow: 2px 2px 5px #999;
   }
+
   @media only screen and (min-width: 768px) {
-  }
-  @media only screen and (min-width: 1024px) {
+    width: 20%;
+
     .detalle-producto {
+      text-align: left;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    h5 {
       display: block;
     }
   }

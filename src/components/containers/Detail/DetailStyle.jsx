@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { Colores, Fuentes } from "../../utils/Constants";
 
 export const DetailStyle = styled.article`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 1fr;
   padding-bottom: 40px;
   padding-top: 30px;
   margin: 0 auto;
-  width: 90%;
   font-family: ${Fuentes.fuenteDos};
   color: ${Colores.colorUno};
 
@@ -18,15 +17,13 @@ export const DetailStyle = styled.article`
   }
 
   .slide-img {
-    width: 50%;
     text-align: center;
   }
   img {
-    max-height: 500px;
+    max-width: 200px;
     object-fit: scale-down;
   }
   .detalle-producto {
-    width: 30%;
     text-align: left;
   }
   h2 {
@@ -52,5 +49,16 @@ export const DetailStyle = styled.article`
   .info-compra .entidades {
     font-size: 25px;
     color: #174a5a;
+  }
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .slide-img {
+      width: 50%;
+    }
+    .detalle-producto {
+      width: 30%;
+    }
   }
 `;
