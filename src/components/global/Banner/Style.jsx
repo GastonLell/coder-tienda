@@ -17,8 +17,9 @@ export const BannerStyle = styled.div`
   }
 
   #slide-uno {
+    background-repeat: no-repeat;
     padding: 20px;
-    min-height: 300px;
+    min-height: 50px;
     background-size: 110%;
     background-image: url(${bannerBateria});
     background-color: ${Colores.colorUno};
@@ -27,12 +28,14 @@ export const BannerStyle = styled.div`
   }
 
   #slide-dos {
+    font-size: 20px;
+    background-repeat: no-repeat;
     padding: 20px;
-    min-height: 300px;
+    min-height: 250px;
     background-blend-mode: multiply;
     background-image: url(${bannerDisco});
-    background-size: 110%;
-    background-position: 200px -350px;
+    background-size: 250%;
+    background-position: 90px -300px;
     background-repeat: repeat;
     background-color: ${Colores.colorCinco};
     opacity: 0.8;
@@ -41,25 +44,56 @@ export const BannerStyle = styled.div`
 
   h2 {
     font-family: ${Fuentes.fuenteDos};
-    font-size: 50px;
-    line-height: 70px;
+    font-size: 28px;
+    line-height: 50px;
   }
+  .spanUno {
+    margin-left: 80px;
+    color: ${Colores.colorCinco};
+    background-color: ${Colores.colorUno};
+    border-radius: 8px;
+    padding: 5px;
+  }
+  .spanDos {
+    margin-left: 10px;
+    color: ${Colores.colorTres};
+  }
+  .spanTres {
+    margin-left: 30px;
+    color: ${Colores.colorDos};
+  }
+  @media only screen and (min-width: 768px) {
+    #slide-uno {
+      min-height: 300px;
+      background-size: 110%;
+      background-position: 100px -390px;
+    }
 
-  @media only screen and (min-width: 750px) {
+    #slide-dos {
+      min-height: 300px;
+      background-size: 150%;
+      background-position: 100px -390px;
+    }
+
+    h2 {
+      font-size: 50px;
+      line-height: 70px;
+    }
     .spanUno {
       margin-left: 40px;
-      color: ${Colores.colorCinco};
-      background-color: ${Colores.colorUno};
-      border-radius: 8px;
-      padding: 5px;
     }
     .spanDos {
       margin-left: 115px;
-      color: ${Colores.colorTres};
     }
     .spanTres {
       margin-left: 300px;
-      color: ${Colores.colorDos};
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    #slide-dos {
+      min-height: 300px;
+      background-size: 100%;
+      background-position: 100px -300px;
     }
   }
 `;

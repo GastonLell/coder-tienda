@@ -18,7 +18,7 @@ const Banner = ({ bannerBoolean }) => {
           <div id="slide-dos" className="slide-banner">
             <h2>
               <span className="spanDos">Compre desde casa</span> <br />
-              <span className="spanTres">Rápido... Facil...</span>
+              <span className="spanTres">Rápido... Facil...</span> <br />
               <span className="spanUno"> Y Seguro</span>
             </h2>
           </div>
