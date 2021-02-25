@@ -34,19 +34,29 @@ export const ItemStyle = styled.article`
     padding: 0 8px;
     text-align: left;
     color: ${Colores.colorUno};
+    display: none;
   }
   h5 {
     color: ${Colores.colorTres} !important;
   }
   img {
+    width: 100%;
     max-width: 100%;
     object-fit: scale-down;
-    max-height: 250px;
+    max-height: 200px;
   }
   &:hover {
     box-shadow: 2px 2px 5px #999;
   }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1024px) {
+    .detalle-producto {
+      display: block;
+    }
+  }
 `;
+
 export const ItemListStyle = styled.section`
   .productos {
     display: flex;

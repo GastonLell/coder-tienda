@@ -5,11 +5,11 @@ import CardsInfo from "../../global/CardInfo/CardsInfo";
 const Home = () => {
   return (
     <>
-      {/* <Banner bannerBoolean={true} /> */}
+      <Banner bannerBoolean={true} />
 
-      {/* <ItemListContainer /> */}
+      <ItemListContainer />
 
-      {/* <Banner bannerBoolean={false} /> */}
+      <Banner bannerBoolean={false} />
 
       <CardsInfo />
     </>

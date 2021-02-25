@@ -1,5 +1,6 @@
 import { ItemStyle } from "./Style";
 import { Link } from "react-router-dom";
+
 const Item = ({
   nombre,
   precio,
@@ -15,6 +16,7 @@ const Item = ({
           src={imagen || "https://placehold.it/200x250"}
           alt="imagen producto"
         />
+
         <div className="info">
           <h2 className="detalle-producto">${precio}</h2>
           <h3 className="detalle-producto">{nombre}</h3>
