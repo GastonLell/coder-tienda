@@ -20,14 +20,11 @@ const Checkout = () => {
   const [idVenta, setIdVenta] = useState();
 
   const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
     email: "",
-    tel: "",
-    localidad: "",
-    provincia: "",
-    CP: "",
-    comentario: "",
+    docNumber: "",
+    cardNameTitular: "",
+    cardNumber: "",
+    cuotas: Number,
   });
 
   const compra = {
@@ -57,7 +54,7 @@ const Checkout = () => {
   }, []);
   return (
     <CheckoutStyle>
-      {data.items.length > 0 && <CartListNabvar data={data} />}
+      {/* {data.items.length > 0 && <CartListNabvar data={data} />} */}
 
       {idVenta ? (
         <SaleConfirmed idVenta={idVenta} />

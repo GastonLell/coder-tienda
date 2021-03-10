@@ -13,15 +13,45 @@ export const CheckoutStyle = styled.div`
 export const FormStyle = styled.div`
   width: 100%;
 
+  h3 {
+    margin: 20px auto;
+    font-size: 30px;
+  }
+
+  form {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #afadaf;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
   input,
-  textarea {
-    width: 67%;
-    display: block;
-    margin: 20px;
+  textarea,
+  select {
+    width: 100%;
+    margin-bottom: 30px;
     border: none;
     border-radius: 8px;
     font-size: 20px;
     padding: 8px;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  select option {
+    font-size: 15px;
+  }
+
+  #cardExpirationMonth,
+  #cardExpirationYear {
+    width: calc((100% / 2) - 4px) !important;
   }
 
   button {
