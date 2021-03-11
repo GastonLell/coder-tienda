@@ -20,7 +20,6 @@ const ItemListContainer = ({ categoria }) => {
         let arrFiltrado = productos.filter(
           (item) => item.data.destacado === true
         );
-
         setItems(arrFiltrado);
       }
     }
@@ -28,7 +27,8 @@ const ItemListContainer = ({ categoria }) => {
 
   useEffect(() => {
     getProductsFromDB();
-  }, [categoria]);
+    console.log("render items del effect");
+  }, [categoria, productos]);
 
   return (
     <>
